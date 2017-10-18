@@ -25,7 +25,7 @@ end
   New.create!(
     user_id: 1,
     title: Faker::Lorem.sentence,
-    content: Faker::Lorem.paragraph(3),
+    content: Faker::Lorem.paragraph(80),
     count_comment: Faker::Number.between(0, 6),
     represent_image: "image_default.jpg"
   )

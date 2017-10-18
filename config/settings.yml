@@ -3,3 +3,5 @@ user:
   email_length: 255
   password_length: 6
 per_page_default: 20
+datetime: "%-d/%-m/%Y-%H:%M:%S"
+paginate_comment: 5
