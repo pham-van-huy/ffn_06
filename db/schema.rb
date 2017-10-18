@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20171017083426) do
     t.bigint "country_id"
     t.bigint "continent_id"
     t.string "name"
-    t.datetime "time"
+    t.date "time"
     t.string "logo"
     t.text "introduction"
     t.datetime "created_at", null: false
@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(version: 20171017083426) do
     t.string "name"
     t.string "email"
     t.string "role", default: "user"
-    t.string "password"
+    t.string "password_digest"
     t.string "avatar"
     t.integer "coin"
     t.datetime "created_at", null: false
