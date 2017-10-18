@@ -1,3 +1,52 @@
-layouts:
-  application:
-    app_name: "Ffn06"
+en:
+  layouts:
+    application:
+      app_name: "Ffn06"
+    header:
+      register: "Register"
+      login: "Login"
+      placeholder: "Search here..."
+      foobal: "Foobal"
+      news: "News"
+      text_logo: "The Daily News Source"
+      home: "Home"
+      blog: "Blog"
+      single: "Single"
+      contact: "Contact"
+      europe: "Europe"
+      usa: "USA"
+      middle_east: "Middle East"
+      social_and_it: "Social and IT"
+      culture: "Culture"
+      language: "Language"
+      english: "English"
+      vietnamese: "Vietnamese"
+      japanese: "Japanese"
+      profile: "Profile"
+      log_out: "Log out"
+  home:
+    title: "Homepage"
+  users:
+    new:
+      sign_up: "Sign up"
+      introduction: "It's free and always will be."
+      your_name: "Your Name"
+      your_email: "Your Email"
+      password: "Password"
+      confirm_password: "Confirm Password"
+      warrning: "By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use."
+      button: "Create my account"
+  share:
+    error:
+      text_one: "The form contains"
+  controller:
+    user:
+      sign_up_success: "Welcome to the Football News!"
+    sessions:
+      login_error: "Invalid email/password combination"
+  sessions:
+    new:
+      title: "Login"
+      your_email: "Your email"
+      password: "Password"
+      button: "Button"

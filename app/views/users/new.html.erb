@@ -1,0 +1,18 @@
+<% provide(:title, t(".sign_up")) %>
+<div class="container" id="wrap">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for @user, url: signup_path,html: {class: "form"} do |f| %>
+        <legend><%= t ".sign_up" %></legend>
+        <h4><%= t ".introduction" %></h4>
+        <%= render "shared/error_messages" %>
+        <%= f.text_field :name, class: "form-control input-lg", placeholder: t(".your_name") %>
+        <%= f.email_field :email, class: "form-control input-lg", placeholder: t(".your_email") %>
+        <%= f.password_field :password, class: "form-control input-lg", placeholder: t(".password") %>
+        <%= f.password_field :password_confirmation, class: "form-control input-lg", placeholder: t(".confirm_password")%>
+        <span class="help-block"><%= t ".warrning" %></span>
+        <%= f.submit t(".button"), class: "btn btn-lg btn-primary btn-block signup-btn" %>
+      <% end %>
+    </div>
+  </div>
+</div>

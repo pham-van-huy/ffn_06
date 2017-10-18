@@ -3,19 +3,17 @@
     <div class="">
       <div class="container">
         <nav class="top-menu">
-          <ul class="left-top-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Site Map</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-
           <ul class="right-top-menu pull-right">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Register</a></li>
-            <li><a href="#">Subscribe</a></li>
+            <% if logged_in? %>
+              <li><%= link_to current_user.name, "#" %></li>
+              <li><%= link_to t("log_out"), logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to t(".login"), login_path %></li>
+              <li><%= link_to t(".register"), signup_path %></li>
+            <% end %>
             <li>
               <form class="form-inline" role="form" action="#">
-                <input type="search" placeholder="Search here..." required>
+                <input type="search" placeholder="<%= t '.placeholder' %>" required>
                 <button type="submit"><i class="fa fa-search"></i></button>
               </form>
             </li>
@@ -25,13 +23,17 @@
     </div>
   </section>
 
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+
   <section id="ccr-site-title">
     <div class="container">
       <div class="site-logo">
         <a href="index.html" class="navbar-brand">
-          <img src="assets/img/logo.png" alt="Side Logo" />
-          <h1>Daily <span>News</span></h1>
-          <h3>The Daily News Source</h3>
+          <img src="assets/img/logo.png"/>
+          <h1><%= t ".football" %><span><%= t ".news" %></span></h1>
+          <h3><%= t ".text_logo" %></h3>
         </a>
       </div>
 
@@ -53,39 +55,10 @@
 
         <div class="collapse navbar-collapse ccr-nav-main">
           <ul class="nav navbar-nav">
-            <li><a class="active" href="index.html">Home</a></li>
-            <li class="dropdown">
-              <a href="#">Blog <i class="fa fa-caret-down"></i></a>
-              <ul class="sub-menu">
-                <li><a href="blog.html">Blog 1</a></li>
-                <li><a href="blog-2.html">Blog 2</a></li>
-                <li><a href="blog-3.html">Blog 3</a></li>
-              </ul>
-            </li>
-            <li><a href="single.html">Single</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li class="dropdown"><a href="#">Category <i class="fa fa-caret-down"></i></a>
-              <ul class="sub-menu">
-                <li><a href="category-1.html">Category 1</a></li>
-                <li><a href="category-2.html">Category 2</a></li>
-                <li><a href="#">More <i class="fa fa-caret-right"></i></a>
-                  <ul class="sub-menu-2">
-                    <li><a href="#">Demo Link 1</a></li>
-                    <li><a href="#">Demo Link 2</a></li>
-
-                    <li><a href="#">More <i class="fa fa-caret-right"></i></a>
-                      <ul class="sub-menu-3">
-                        <li><a href="#">Demo Link 1</a></li>
-                        <li><a href="#">Demo Link 2</a></li>
-                        <li><a href="#">Demo Link 3</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#">Demo Link 3</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="404.html">404</a></li>
+            <li><a class="active" href="index.html"><%= t ".home" %></a></li>
+            <li><a class="active" href="index.html"><%= t ".blog" %></a></li>
+            <li><a href="single.html"><%= t ".single" %></a></li>
+            <li><a href="contact.html"><%= t ".contact" %></a></li>
           </ul>
         </div>
 
@@ -108,21 +81,21 @@
 
         <div class="collapse navbar-collapse ccr-nav-below-main">
           <ul class="nav navbar-nav">
-            <li><a href="#">Europe</a></li>
-            <li><a href="#">USA</a></li>
-            <li><a href="#">Middle East</a></li>
-            <li><a href="#">Social and IT</a></li>
-            <li><a href="#">Culture</a></li>
+            <li><a href="#"><%= t ".europe" %></a></li>
+            <li><a href="#"><%= t ".usa" %></a></li>
+            <li><a href="#"><%= t ".middle_east" %></a></li>
+            <li><a href="#"><%= t ".social_and_it" %></a></li>
+            <li><a href="#"><%= t ".culture" %></a></li>
           </ul>
         </div>
 
         <div class="ccr-language">
           <ul>
-            <li>Language:</li>
-            <li><a href="#"><img src="assets/img/uk.png" alt="UK">English</a></li>
-            <li><a href="#"><img src="assets/img/france.png" alt="France">France</a></li>
+            <li><%= t ".language" %></li>
+            <li><a href="#"><img src="assets/img/uk.png" alt="UK"><%= t ".english" %></a></li>
+            <li><a href="#"><img src="assets/img/france.png" alt="vi"><%= t ".vietnamese" %></a></li>
             <li>
-              <a href="#"><img src="assets/img/garman.png" alt="Garman">Garman</a></li>
+              <a href="#"><img src="assets/img/garman.png" alt="ja"><%= t ".japanese" %></a></li>
           </ul>
         </div>
       </div>
