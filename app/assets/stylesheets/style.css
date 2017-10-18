@@ -413,7 +413,7 @@ line-height: 40px;
 #ccr-site-title .site-logo a{
   padding-left: 0px;
   padding-right: 0px;
-  width: 300px;
+  width: 330px;
 }
 #ccr-site-title .site-logo h1{
   color: #818285;
@@ -443,7 +443,7 @@ line-height: 40px;
   color: #FFF;
   background: #d5d5d5;
   line-height: 80px;
-  width: 728px;
+  width: 500px;
   height: 90px;
   float: right;
 }
