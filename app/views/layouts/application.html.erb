@@ -1,14 +1,20 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title><%= t ".app_name" %></title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+    <%= render "layouts/load_css"%>
   </head>
 
   <body>
-    <%= yield %>
+  <%= render "layouts/header" %>
+    <section id="ccr-main-section">
+      <div class="container">
+        <!-- main content -->
+        <%= yield %>
+        <%= render "layouts/sibar_right"%>
+      </div>
+    </section>
+  <!-- footer -->
+  <%= render "layouts/footer"%>
+  <%= render "layouts/load_js"%>
   </body>
 </html>
