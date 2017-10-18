@@ -8,6 +8,7 @@ end
 gem "bcrypt", "~> 3.1.7"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "font-awesome-rails"
 gem "i18n-js"
 gem "jbuilder", "~> 2.5"
 gem "mysql2", "~> 0.3.18"
