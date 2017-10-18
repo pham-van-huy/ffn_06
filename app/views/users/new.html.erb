@@ -1,0 +1,17 @@
+<% provide(:title, t(".sign_up")) %>
+<div class="container" id="wrap">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form action="r" method="post" accept-charset="utf-8" class="form" role="form">
+        <legend><%= t ".sign_up" %></legend>
+        <h4><%= t ".introduction" %></h4>
+        <input type="text" name="name" value="" class="form-control input-lg" placeholder=<%= t ".your_name" %> />
+        <input type="text" name="email" value="" class="form-control input-lg" placeholder=<%= t ".your_email" %> />
+        <input type="password" name="password" value="" class="form-control input-lg" placeholder=<%= t ".password" %> />
+        <input type="password" name="confirm_password" value="" class="form-control input-lg" placeholder=<%= t ".confirm_password" %> />
+        <span class="help-block"><%= t ".warrning" %></span>
+        <button class="btn btn-lg btn-primary btn-block signup-btn" type="submit"><%= t ".button" %></button>
+      </form>
+    </div>
+  </div>
+</div>
