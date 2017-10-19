@@ -24,8 +24,14 @@ en:
       japanese: "Japanese"
       profile: "Profile"
       log_out: "Log out"
-  home:
-    title: "Homepage"
+  news:
+    index:
+      title: "Homepage"
+      sport_news: "Sport News"
+      read_more: "Read More"
+      no_news: "No data to show"
+    new:
+      read_more: "Read More"
   users:
     new:
       sign_up: "Sign up"

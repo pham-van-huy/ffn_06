@@ -1,0 +1,35 @@
+<% provide(:title, t(".title")) %>
+<section id="ccr-world-news">
+  <div class="ccr-gallery-ttile">
+    <span></span>
+    <p><%= t ".sport_news" %></p>
+  </div>
+
+  <% if @news.present? %>
+    <section class="featured-world-news">
+      <div class="featured-world-news-img"><img src="assets/<%= @news.first.represent_image %>"></div>
+      <div class="featured-world-news-post">
+        <h5><%= @news.first.title %></h5>
+        <%= @news.first.content[0..400] %>...
+        <div class="like-comment-readmore">
+          <a href="#" class="comments"><i class="fa fa-comments-o"></i> <%= @news.first.count_comment %> </a>
+          <a class="read-more" href="#"><%= t ".read_more" %></a>
+        </div>
+      </div>
+    </section>
+    <% if (@news.size > 1) %>
+      <ul>
+        <%= render @news.offset(1) %>
+      </ul>
+    <% end %>
+  <% else %>
+    <h2><%= t ".no_news" %></h2>
+  <% end %>
+</section>
+
+<% if @news.present? %>
+  <section class="bottom-border"></section>
+  <div class="digg_pagination">
+    <%= will_paginate @news, container: false %>
+  </div>
+<% end %>
