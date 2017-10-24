@@ -53,12 +53,21 @@ en:
       confirm_password: "Confirm Password"
       warrning: "By clicking Create my account, you agree to our Terms and that you have read our Data Use Policy, including our Cookie Use."
       button: "Create my account"
+    edit:
+      title: "Edit profile"
+      name: "Name"
+      email: "Email"
+      save: "Save"
+      cancel: "Cancel"
   share:
     error:
       text_one: "The form contains"
   controller:
     user:
       sign_up_success: "Welcome to the Football News!"
+      not_found: "Not found user"
+      update_success: "Update successfuly"
+      fail_success: "Update fail"
     sessions:
       login_error: "Invalid email/password combination"
     comment:
