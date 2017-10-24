@@ -3,3 +3,4 @@ user:
   email_length: 255
   password_length: 6
 per_page_default: 20
+paginate_comment: 5

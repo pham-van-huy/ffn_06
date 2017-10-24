@@ -1,0 +1,39 @@
+$(document).ready(function() {
+    $("#submit_comment").on("click", function () {
+        var content = $("#content_comment").val()
+        var data = {
+            content: content,
+            new_id: <%= @new.id %>
+        }
+
+        if (content) {
+          $.post( "<%= comments_path %>", data, function( data ) {
+            if (data.status == 200) {
+              var div = `<div class="row comment-user">
+                <div class="col-lg-1 style-avatar">
+                  <a href="#">
+                    <img class="img-responsive user-photo" src="/assets/${data.user.avatar}">
+                  </a>
+                </div>
+                <div class="col-lg-11 name_author" data-id="${data.new_comment.id}">
+                  <h4 class="media-heading">
+                    ${data.user.name}
+                    <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+                    <span><i class="fa fa-pencil" aria-hidden="true"></i></span>
+                  </h4>
+                  <p class="content_comment">${data.new_comment.content}</p>
+                </div>
+              </div>`
+              $("#container_comment").prepend(div)
+              $("#content_comment").val("")
+              $("#container_comment>.row").last().remove()
+            }
+            if (data.status == 404) {
+              alert ("<%= t 'comments.alert_fail' %>")
+            }
+          });
+        } else {
+          alert("<%= t 'comments.alert' %>")
+        }
+    })
+})

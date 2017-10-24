@@ -1,4 +1,7 @@
 en:
+  time:
+    formats:
+      date_month_year_concise: '%d-%m-%Y-%H:%M:%S'
   layouts:
     application:
       app_name: "Ffn06"
@@ -32,6 +35,14 @@ en:
       no_news: "No data to show"
     new:
       read_more: "Read More"
+  home:
+    title: "Homepage"
+    new:
+      read_more: "Read More"
+    show:
+      comment: "Leave a Comment:"
+      submit: "Submit"
+      comments: "Comments"
   users:
     new:
       sign_up: "Sign up"
@@ -50,9 +61,16 @@ en:
       sign_up_success: "Welcome to the Football News!"
     sessions:
       login_error: "Invalid email/password combination"
+    comment:
+      not_found: "This new is not found"
+      not_login: "Please login"
   sessions:
     new:
       title: "Login"
       your_email: "Your email"
       password: "Password"
       button: "Button"
+  comments:
+    alert: "Content of content is empty"
+    alert_fail: "Comment fail"
+    delete_fail: "Delete fail"

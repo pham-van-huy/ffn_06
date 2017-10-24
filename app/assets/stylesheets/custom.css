@@ -83,3 +83,39 @@ legend{
     color: $state-danger-text;
   }
 }
+
+.style-avatar {
+  padding-right: 0px!important;
+}
+.style-button {
+  float: right;
+}
+
+.new-content {
+  line-height: 25px;
+  font-size: 17px;
+}
+
+#container_comment i {
+  float: right;
+}
+
+#container_comment .fa-trash {
+  margin-left: 10px;
+}
+
+#container_comment .fa-trash:hover {
+  color: red;
+  cursor: pointer;
+}
+
+#container_comment .fa-pencil:hover {
+  color: #2eb2bb;
+  cursor: pointer;
+}
+
+.row .comment-user {
+  border-bottom: 1px solid #f3f3f5;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
