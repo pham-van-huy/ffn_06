@@ -3,7 +3,6 @@ User.create!(
   email: "admin@gmail.com",
   role: "admin",
   password: "123123",
-  avatar: "avatar_default.png",
   coin: 1000)
 
 19.times do |n|
@@ -16,7 +15,6 @@ User.create!(
     email: email,
     role: "user",
     password: password,
-    avatar: "avatar_default.png",
     coin: Faker::Number.between(0, 500)
   )
 end
