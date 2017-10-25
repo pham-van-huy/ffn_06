@@ -1,0 +1,79 @@
+<% provide(:title, t(".title")) %>
+<div class="container">
+  <div class="col-md-12 show-search">
+    <h3 class="search-results-count">
+      <%= t ".result_leagues", number: @result[:leagues].total_entries, key: @result[:key] %>
+    </h3>
+    <br>
+    <% if @result[:leagues].present? %>
+      <% @result[:leagues].each do |e|%>
+        <section class="search-result-item">
+          <a class="image-link" href="javascript:void(0)">
+            <img class="image" src="/assets/<%= e.logo %>">
+          </a>
+          <div class="search-result-item-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="search-result-item-heading"><a href="javascript:void(0)"><%= e.name %></a></h4>
+                <p class="info"><%= e.country.name %>, <%= e.continent.name %></p>
+                <p class="description"><%= e.introduction[0..100] %>...</p>
+              </div>
+              <div class="col-sm-3 text-align-center">
+                <p class="value3 mt-sm">
+                  <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+                  <%= I18n.l e.time, format: :date_month_year_concise %>
+                </p>
+                <p class="value3 mt-sm"><strong><%= t ".matchs" %></strong><%= e.matchs.size %></p>
+                <a class="btn btn-primary btn-info btn-sm" href="javascript:void(0)"><%= t ".see_detail" %></a>
+              </div>
+            </div>
+          </div>
+        </section>
+      <% end %>
+    <% else %>
+      <h4 class="no-data"><%= t ".no_data", page: @result[:leagues].current_page %></h4>
+      <hr>
+    <% end %>
+  </div>
+  <div class="col-md-12 show-search">
+    <h3 class="search-results-count">
+      <%= t ".result_teams", number: @result[:teams].total_entries, key: @result[:key] %>
+    </h3>
+    <br>
+    <% if @result[:teams].present? %>
+      <% @result[:teams].each do |e|%>
+        <section class="search-result-item">
+          <a class="image-link" href="javascript:void(0)">
+            <img class="image" src="/assets/<%= e.logo %>">
+          </a>
+          <div class="search-result-item-body">
+            <div class="row">
+              <div class="col-sm-9">
+                <h4 class="search-result-item-heading"><a href="javascript:void(0)"><%= e.name %></a></h4>
+                <p class="info"><%= e.country.name %></p>
+                <p class="description"><%= e.description[0..100] %>...</p>
+              </div>
+              <div class="col-sm-3 text-align-center">
+                <p class="value3 mt-sm">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  <%= e.players.size %>
+                </p>
+                <a class="btn btn-primary btn-info btn-sm" href="javascript:void(0)"><%= t ".see_detail" %></a>
+              </div>
+            </div>
+          </div>
+          <%= @result[:teams].total_pages %>
+        </section>
+      <% end %>
+    <% else %>
+      <h4 class="no-data"><%= t ".no_data", page: @result[:teams].current_page %></h4>
+      <hr>
+    <% end %>
+  </div>
+  <% if @result[:teams].present? || @result[:leagues].present? %>
+    <section class="bottom-border"></section>
+    <div class="digg_pagination">
+      <%= will_paginate @result[:teams], container: false %>
+    </div>
+  <% end %>
+</div>
