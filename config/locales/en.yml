@@ -27,6 +27,8 @@ en:
       japanese: "Japanese"
       profile: "Profile"
       log_out: "Log out"
+    sibar_right:
+      name_table: "Ranking of teams"
   news:
     index:
       title: "Homepage"
