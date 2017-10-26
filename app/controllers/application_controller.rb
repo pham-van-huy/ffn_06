@@ -35,6 +35,6 @@ class ApplicationController < ActionController::Base
         score += e.team2_goal - e.team1_goal
       end
     end
-    return score
+    score
   end
 end

@@ -30,7 +30,7 @@
   <section id="ccr-site-title">
     <div class="container">
       <div class="site-logo">
-        <a href="index.html" class="navbar-brand">
+        <a href="/" class="navbar-brand">
           <img src="/assets/img/logo.png"/>
           <h1><%= t ".football" %><span><%= t ".news" %></span></h1>
           <h3><%= t ".text_logo" %></h3>
@@ -55,10 +55,9 @@
 
         <div class="collapse navbar-collapse ccr-nav-main">
           <ul class="nav navbar-nav">
-            <li><a class="active" href="index.html"><%= t ".home" %></a></li>
-            <li><a class="active" href="index.html"><%= t ".blog" %></a></li>
-            <li><a href="single.html"><%= t ".single" %></a></li>
-            <li><a href="contact.html"><%= t ".contact" %></a></li>
+            <li><%= link_to t(".home"), root_path, class: "active" %></li>
+            <li><%= link_to t(".leagues"), "javascript:void(0)", class: "active" %></li>
+            <li><%= link_to t(".teams"), teams_path, class: "active" %></li>
           </ul>
         </div>
 

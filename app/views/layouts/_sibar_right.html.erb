@@ -31,7 +31,7 @@
         <% @teams_ranked.each_with_index do |team, index| %>
           <li>
             <img src="/assets/<%= team.logo %>" alt="Avatar">
-            <%= link_to team.name, team_path(team)%>
+            <%= link_to team.name, "javascript:void(0)"%>
             <div class="date-like-comment">
               <span class="date">
                 <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>

@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update]
   resources :news, only: [:show]
   resources :comments, only: [:create, :update, :destroy]
-  resources :teams, only: [:show]
+  resources :teams, only: [:index]
 end
