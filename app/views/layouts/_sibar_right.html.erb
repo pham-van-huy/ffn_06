@@ -24,55 +24,28 @@
   <section id="sidebar-popular-post">
     <div class="ccr-gallery-ttile">
       <span></span>
-      <p><strong>Popular Post</strong></p>
+      <p><strong><%= t "layouts.sibar_right.name_table" %></strong></p>
     </div>
-    <ul>
-      <li>
-        <img src="/assets/img/sports-thumb-10.jpg" alt="Avatar">
-        <a href="#">This is the first popular post</a>
-        <div class="date-like-comment">
-          <span class="date"><time datetime="2014-02-17">2014-02-17</time></span>
-          <a class="like" href="#"><i class="fa fa-thumbs-o-up"></i> 08</a>
-          <a class="comments" href="#"><i class="fa fa-comments-o"></i> 49</a>
-        </div>
-      </li>
-      <li>
-        <img src="/assets/img/thumbnail-small-7.jpg" alt="Avatar">
-        <a href="#">This is the first popular post</a>
-        <div class="date-like-comment">
-          <span class="date"><time datetime="2014-02-17">2014-02-17</time></span>
-          <a class="like" href="#"><i class="fa fa-thumbs-o-up"></i> 08</a>
-          <a class="comments" href="#"><i class="fa fa-comments-o"></i> 49</a>
-        </div>
-      </li>
-      <li>
-        <img src="/assets/img/sports-thumb-5.jpg" alt="Avatar">
-        <a href="#">This is the first popular post</a>
-        <div class="date-like-comment">
-          <span class="date"><time datetime="2014-02-17">2014-02-17</time></span>
-          <a class="like" href="#"><i class="fa fa-thumbs-o-up"></i> 08</a>
-          <a class="comments" href="#"><i class="fa fa-comments-o"></i> 49</a>
-        </div>
-      </li>
-      <li>
-        <img src="/assets/img/thumbnail-small-2.jpg" alt="Avatar">
-        <a href="#">This is the first popular post</a>
-        <div class="date-like-comment">
-          <span class="date"><time datetime="2014-02-17">2014-02-17</time></span>
-          <a class="like" href="#"><i class="fa fa-thumbs-o-up"></i> 08</a>
-          <a class="comments" href="#"><i class="fa fa-comments-o"></i> 49</a>
-        </div>
-      </li>
-      <li>
-        <img src="/assets/img/thumbnail-small-5.jpg" alt="Avatar">
-        <a href="#">This is the first popular post</a>
-        <div class="date-like-comment">
-          <span class="date"><time datetime="2014-02-17">2014-02-17</time></span>
-          <a class="like" href="#"><i class="fa fa-thumbs-o-up"></i> 08</a>
-          <a class="comments" href="#"><i class="fa fa-comments-o"></i> 49</a>
-        </div>
-      </li>
-    </ul>
+    <div>
+      <ul id="ranking_table">
+        <% @teams_ranked.each_with_index do |team, index| %>
+          <li>
+            <img src="/assets/<%= team.logo %>" alt="Avatar">
+            <%= link_to team.name, team_path(team)%>
+            <div class="date-like-comment">
+              <span class="date">
+                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+                <%= index + 1 %>
+              </span>
+              <a class="like" href="javascript:void(0)">
+                <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                <%= team.score %>
+              </a>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </section>
 
   <section id="sidebar-older-post">

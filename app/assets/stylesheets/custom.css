@@ -123,3 +123,16 @@ legend{
 .content-profile {
   padding-top: 50px;
 }
+
+#ranking_table {
+  max-height: 405px;
+  overflow-y: scroll;
+}
+#sidebar-popular-post {
+  display: flex;
+  flex-direction: column;
+}
+
+#ranking_table li:last-child {
+  margin-bottom: 0!important;
+}
