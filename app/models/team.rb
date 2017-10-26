@@ -5,4 +5,5 @@ class Team < ApplicationRecord
   has_many :matchs_two, dependent: :destroy, foreign_key: :team2_id, class_name: :Match
   belongs_to :country
   belongs_to :country
+  scope :desc, ->{order "created_at DESC"}
 end
