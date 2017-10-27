@@ -12,10 +12,11 @@
               <li><%= link_to t(".register"), signup_path %></li>
             <% end %>
             <li>
-              <form class="form-inline" role="form" action="#">
-                <input type="search" placeholder="<%= t '.placeholder' %>" required>
+              <%= form_for :searchs, url: search_path, html: {
+                class: "form-inline", role: "form", method: "GET"} do |f| %>
+                <%= f.search_field :key, placeholder: t(".placeholder"), required: "required" %>
                 <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
+              <% end %>
             </li>
           </ul>
         </nav>
