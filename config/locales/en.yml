@@ -1,11 +1,12 @@
 en:
   time:
     formats:
-      date_month_year_concise: '%d-%m-%Y-%H:%M:%S'
-      date_month_year: '%d-%m-%Y'
+      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year: "%d-%m-%Y"
   date:
     formats:
-      date_month_year_concise: '%d-%m-%Y'
+      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year: "%d-%m-%Y"
   layouts:
     application:
       app_name: "Ffn06"
@@ -81,6 +82,8 @@ en:
     comment:
       not_found: "This new is not found"
       not_login: "Please login"
+    leagues:
+      not_found: "This league is not found"
   sessions:
     new:
       title: "Login"
@@ -109,3 +112,21 @@ en:
       matchs: "Matchs:"
       see_detail: "See detail"
       no_data: "No data to show in page %{page}"
+  leagues:
+    index:
+      title: "List leagues"
+    show:
+      status: "Status:"
+      happened: "Happened"
+      start_at: "Start at:"
+      number_match: "Number matchs:"
+      happenning: "Happenning"
+      completed: "Completed"
+      matchs_completed: "Matchs completed:"
+      waiting: "Waiting"
+      introduction: "Introduction"
+      league_schedule: "League schedule"
+      ranking_table: "Ranking table"
+      vs: "  VS  "
+      start: "Start"
+      end: "End"

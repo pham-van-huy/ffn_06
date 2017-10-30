@@ -6,5 +6,5 @@ class Team < ApplicationRecord
   belongs_to :country
   belongs_to :country
   scope :desc, ->{order "created_at DESC"}
-  scope :get_search, ->(key) {joins(:country).where("countries.name REGEXP ?", key)}
+  scope :get_search, ->(key){joins(:country).where("countries.name REGEXP ?", key)}
 end

@@ -1,0 +1,10 @@
+<% provide(:title, t(".title")) %>
+<div id="wrap-list-leagues">
+  <%= render  @leagues %>
+</div>
+<% if @leagues.present? %>
+  <section class="bottom-border"></section>
+  <div class="digg_pagination">
+    <%= will_paginate @leagues, container: false %>
+  </div>
+<% end %>
