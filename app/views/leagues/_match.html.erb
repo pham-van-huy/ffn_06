@@ -1,0 +1,89 @@
+<% if match_counter.even? %>
+  <div class="col-sm-6 news-item">
+    <div class="news-content">
+      <div class="row">
+        <div class="panel panel-primary event-primary">
+          <div class="panel-heading">
+            <b class="color-white">
+              <%= match.teams_col_one.name %><%= t "leagues.show.vs" %> <%= match.teams_col_two.name %>
+            </b>
+          </div>
+          <div class="panel-body nopadding">
+            <div class="row nopadding">
+              <div class="col-sm-6 nopadding">
+                <time class="start pink">
+                  <%= t "leagues.show.start" %>
+                  <p class="color-white"><%= I18n.l match.start_time, format: :date_month_year_concise %></p>
+                  <% if match.end_time.past? %>
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                    <%= match.team1_goal %>
+                  <% end %>
+                </time>
+              </div>
+              <div class="col-sm-6 nopadding">
+                <time class="end purple">
+                  <%= t "leagues.show.end" %>
+                  <p class="color-white"><%= I18n.l match.end_time, format: :date_month_year_concise %></p>
+                  <% if match.end_time.past? %>
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                    <%= match.team2_goal %>
+                  <% end %>
+                </time>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer panel-primary">
+            <p>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>:
+              <%= match.stadium.name %>, <%= match.stadium.country.name %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <div class="col-sm-6 news-item right">
+    <div class="news-content">
+      <div class="row">
+        <div class="panel panel-primary event-primary">
+          <div class="panel-heading">
+            <b class="color-white">
+              <%= match.teams_col_one.name %><%= t "leagues.show.vs" %> <%= match.teams_col_two.name %>
+            </b>
+          </div>
+          <div class="panel-body nopadding">
+            <div class="row nopadding">
+              <div class="col-sm-6 nopadding">
+                <time class="start pink">
+                  <%= t "leagues.show.start" %>
+                  <p class="color-white"><%= I18n.l match.start_time, format: :date_month_year_concise %></p>
+                  <% if match.end_time.past? %>
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                    <%= match.team1_goal %>
+                  <% end %>
+                </time>
+              </div>
+              <div class="col-sm-6 nopadding">
+                <time class="end purple">
+                  <%= t "leagues.show.end" %>
+                  <p class="color-white"><%= I18n.l match.end_time, format: :date_month_year_concise %></p>
+                  <% if match.end_time.past? %>
+                    <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                    <%= match.team2_goal %>
+                  <% end %>
+                </time>
+              </div>
+            </div>
+          </div>
+          <div class="panel-footer panel-primary">
+            <p>
+              <i class="fa fa-map-marker" aria-hidden="true"></i>:
+              <%= match.stadium.name %>, <%= match.stadium.country.name %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

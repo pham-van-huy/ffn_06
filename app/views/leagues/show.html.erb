@@ -1,0 +1,94 @@
+<% provide(:title, @league.name) %>
+<div class="row">
+    <div class="wrapper wrapper-content animated fadeInUp">
+      <div class="ibox">
+        <div class="ibox-content">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="m-b-md">
+                <h2><b><%= @league.name %></b></h2>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-5">
+              <img src="/assets/<%= @league.logo %>">
+            </div>
+            <div class="col-lg-7" id="cluster_info">
+              <dl class="dl-horizontal">
+                <dt><%= t ".status" %></dt>
+                <% if @league.time.past? %>
+                  <dd><span class="label label-danger"><%= t ".completed" %></span></dd>
+                <% end %>
+                <% if @league.time.future?  %>
+                  <dd><span class="label label-primary"><%= t ".waiting" %></span></dd>
+                <% end %>
+                <dt><%= t ".start_at" %></dt>
+                <dd><%= I18n.l @league.time, format: :date_month_year %></dd>
+                <dt><%= t ".number_match" %></dt>
+                <dd><%= @match_size %></dd>
+                <dt><%= t ".matchs_completed" %></dt>
+                <dd><%= matched(@league.matchs).size %></dd>
+              </dl>
+            </div>
+          </div>
+          <% if @match_size > 0 %>
+            <div class="row">
+              <div class="col-lg-12">
+                <dl class="dl-horizontal">
+                  <dt><%= t ".completed" %>:</dt>
+                  <dd>
+                    <div class="progress progress-striped active m-b-sm">
+                      <div
+                        style="width: <%= matched(@league.matchs).size.fdiv(@match_size)*100 %>%;"
+                        class="progress-bar"></div>
+                    </div>
+                  </dd>
+                </dl>
+              </div>
+            </div>
+          <% end %>
+          <div class="row m-t-sm">
+            <div class="col-lg-12">
+              <div class="panel blank-panel">
+                <div class="panel-heading">
+                  <div class="panel-options">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a href="#tab-1" data-toggle="tab" aria-expanded="false"><%= t ".introduction" %></a>
+                      </li>
+                      <li><a href="#tab-2" data-toggle="tab" aria-expanded="true"><%= t ".league_schedule" %></a></li>
+                      <li><a href="#tab-3" data-toggle="tab" aria-expanded="true"><%= t ".ranking_table" %></a></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="panel-body">
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab-1">
+                      <%= @league.introduction %>
+                    </div>
+                    <div class="tab-pane" id="tab-2">
+                      <div class="container bootstrap snippet">
+                        <section id="news" class="white-bg padding-top-bottom">
+                          <div class="container bootstrap snippet">
+                            <div class="timeline">
+                              <div class="row">
+                                <%= render partial: "leagues/match", collection: @league.matchs %>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+                      </div>
+                    </div>
+                    <div class="tab-pane" id="tab-3">
+                      <!-- content of tab -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

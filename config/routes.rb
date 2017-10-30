@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   resources :news, only: [:show]
   resources :comments, only: [:create, :update, :destroy]
   resources :teams, only: [:index]
+  resources :leagues, only: [:index, :show]
 end
