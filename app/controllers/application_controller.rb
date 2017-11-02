@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
+  include LeaguesHelper
   before_action :ranking_team
 
   def ranking_team
@@ -28,11 +29,19 @@ class ApplicationController < ActionController::Base
     score = 0
     if is_one
       maths.each do |e|
-        score += e.team1_goal - e.team2_goal
+        if e.team1_goal > e.team2_goal
+          score += 3
+        elsif e.team1_goal == e.team2_goal
+          score += 1
+        end
       end
     else
       maths.each do |e|
-        score += e.team2_goal - e.team1_goal
+        if e.team1_goal < e.team2_goal
+          score += 3
+        elsif e.team1_goal == e.team2_goal
+          score += 1
+        end
       end
     end
     score

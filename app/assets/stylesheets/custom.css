@@ -227,20 +227,20 @@ legend{
 
 .search-result-categories>li>a {
   color: #b6b6b6;
-  font-weight: 400
+  font-weight: 400;
 }
 
 .search-result-categories>li>a:hover {
   background-color: #ddd;
-  color: #555
+  color: #555;
 }
 
 .search-result-categories>li>a>.glyphicon {
-  margin-right: 5px
+  margin-right: 5px;
 }
 
 .search-result-categories>li>a>.badge {
-  float: right
+  float: right;
 }
 
 .search-results-count {
@@ -987,7 +987,10 @@ ul.tag-list li {
 
 .event-primary h2 {margin-top:10px}
 
-.event-primary { margin-bottom: 0px }
+.event-primary {
+  margin-bottom: 0px;
+  background-color: #347bb7;
+}
 
 .nopadding {
   padding: 0 !important
@@ -1005,7 +1008,7 @@ time.pink {
   background-color: rgb(197, 44, 102);
 }
 time.purple {
-  background-color: rgb(165, 82, 167)
+  background-color: rgb(165, 82, 167);
 }
 
 time.dkblue{
@@ -1081,4 +1084,54 @@ time > .month {
 .color-white {
   color: white;
   text-align: center;
+}
+
+.style-bet {
+  padding: 0px;
+  border-right: 1px solid white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.style-bet:last-child {
+  border-right: 0px;
+}
+
+.style-bet label {
+  color: white;
+  font-weight: inherit;
+  white-space: nowrap;
+}
+
+.style-footer {
+  padding: 0px!important;
+}
+
+.style-button-bet {
+  text-align: center;
+}
+
+.style-button-bet button {
+  margin-top: 5px;
+}
+
+.bet-win label {
+  color: greenyellow!important;
+}
+
+.bet-lose label {
+  color: darkorange!important;
+}
+
+.goto-bet {
+  display: block;
+}
+
+.button-search {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.edit_bet, .delete_bet, .bet-save-edit, .bet-cancel-edit {
+  cursor: pointer;
 }

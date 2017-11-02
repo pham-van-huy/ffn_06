@@ -5,3 +5,5 @@ user:
 per_page_default: 20
 paginate_comment: 5
 paginate_teams: 10
+valid_bet: 75
+limit_bet: 3
