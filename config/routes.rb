@@ -13,4 +13,13 @@ Rails.application.routes.draw do
   resources :leagues, only: [:index, :show]
   resources :bets, only: [:create, :update, :destroy]
   resources :matchs, only: [:show]
+
+  namespace :admin do
+    get "/", to: "leagues#home_admin"
+    get "/ajax_get_countries", to: "countries#get_by_league"
+    resources :leagues, except: [:show] do
+      resources :matchs, only: [:create]
+    end
+    resources :news, except: [:show]
+  end
 end
