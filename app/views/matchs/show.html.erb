@@ -2,10 +2,10 @@
 <div class="container">
   <div class="row">
       <div class="col-md-5">
-          <div>
+          <div class="logo-score">
               <img src="/assets/<%= @match.teams_col_one.logo %>">
               <% if @match.end_time.past? %>
-                <div class="score-match"><%= @match.team1_goal %>></div>
+                <div class="score-match"><%= @match.team1_goal %></div>
               <% end %>
           </div>
           <h3><%= @match.teams_col_one.name %></h3>
@@ -14,10 +14,10 @@
           <h1><%= t ".vs" %></h1>
       </div>
       <div class="col-md-5">
-          <div>
+          <div class="logo-score">
               <img src="/assets/<%= @match.teams_col_two.logo %>">
               <% if @match.end_time.past? %>
-                <div class="score-match"><%= @match.team2_goal %>></div>
+                <div class="score-match"><%= @match.team2_goal %></div>
               <% end %>
           </div>
           <h3><%= @match.teams_col_two.name %></h3>

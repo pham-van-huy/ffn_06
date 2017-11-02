@@ -1,0 +1,72 @@
+<div id="myModal-<%= e.id %>" class="modal fade custom-modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="main-<%= e.id %>">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2 class="page-header">
+                <%= e.name %>
+              </h2>
+            </div>
+          </div>
+          <div class="row" id="real-estates-detail-<%= e.id %>">
+            <div class="col-lg-4 col-md-4 col-xs-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <header class="panel-title">
+                    <div class="text-center">
+                      <strong><%= t ".logo_team" %></strong>
+                    </div>
+                  </header>
+                </div>
+                <div class="panel-body">
+                  <div class="text-center" id="author-<%= e.id %>">
+                    <img src="/assets/<%= e.logo %>">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-xs-12">
+              <div class="panel">
+                <div class="panel-body">
+                  <ul id="myTab-<%= e.id %>" class="nav nav-pills">
+                    <li class="active"><a href="#detail-<%= e.id %>" data-toggle="tab"><%= t ".details" %></a></li>
+                    <li class=""><a href="#contact-<%= e.id %>" data-toggle="tab"><%= t ".description" %></a></li>
+                    <li class=""><a href="#members-<%= e.id %>" data-toggle="tab"><%= t ".members" %></a></li>
+                  </ul>
+                  <div id="myTabContent-<%= e.id %>" class="tab-content">
+                    <div class="tab-pane fade active in" id="detail-<%= e.id %>">
+                      <br>
+                      <table class="table table-th-block">
+                        <tbody>
+                          <tr>
+                            <td class="active"><%= t ".number_member" %></td>
+                            <td><%= e.players.size %></td>
+                          </tr>
+                          <tr>
+                            <td class="active"><%= t ".number_match" %></td>
+                            <td><%= e.matchs_one.size + e.matchs_two.size %></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="tab-pane fade" id="contact-<%= e.id %>">
+                      <%= e.description %>
+                    </div>
+                    <div class="tab-pane fade" id="members-<%= e.id %>">
+                      <%= render partial: "teams/member", locals: {members: e.players} %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t ".close" %></button>
+      </div>
+    </div>
+  </div>
+</div>

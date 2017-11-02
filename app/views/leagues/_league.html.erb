@@ -1,27 +1,27 @@
 <div class="member-entry">
-      <a href="<%= league_path league %>" class="member-img">
-        <img src="assets/<%= league.logo %>" class="img-rounded">
-      </a>
-      <div class="member-details">
-        <h4><%= link_to league.name, league_path(league) %></h4>
-        <div class="row info-list">
-          <div class="col-sm-4">
-            <i class="fa fa-hourglass-start" aria-hidden="true"></i>:
-            <%= I18n.l league.time, format: :date_month_year %>
-          </div>
-          <div class="col-sm-2">
-            <i class="fa fa-futbol-o" aria-hidden="true"></i>:
-            <%= matched(league.matchs).size %>/<%= league.matchs.size %>
-          </div>
-          <div class="col-sm-6">
-            <i class="fa fa-map-marker" aria-hidden="true"></i>:
-            <%= league.country.name %>, <%= league.continent.name %>
-          </div>
-          <div class="clear"></div>
-          <div class="col-sm-12">
-            <i class="fa fa-info" aria-hidden="true"></i>:
-            <%= league.introduction[0..200] %>...
-          </div>
-        </div>
+  <a href="<%= league_path league %>" class="member-img">
+    <img src="assets/<%= league.logo %>" class="img-rounded">
+  </a>
+  <div class="member-details">
+    <h4><%= link_to league.name, league_path(league) %></h4>
+    <div class="row info-list">
+      <div class="col-sm-4">
+        <i class="fa fa-hourglass-start" aria-hidden="true"></i>:
+        <%= I18n.l league.time, format: :date_month_year %>
+      </div>
+      <div class="col-sm-2">
+        <i class="fa fa-futbol-o" aria-hidden="true"></i>:
+        <%= matched(league.matchs).size %>/<%= league.matchs.size %>
+      </div>
+      <div class="col-sm-6">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>:
+        <%= league.country.name %>, <%= league.continent.name %>
+      </div>
+      <div class="clear"></div>
+      <div class="col-sm-12">
+        <i class="fa fa-info" aria-hidden="true"></i>:
+        <%= league.introduction[0..200] %>...
       </div>
     </div>
+  </div>
+</div>

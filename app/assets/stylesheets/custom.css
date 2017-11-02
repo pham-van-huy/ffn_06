@@ -1135,3 +1135,58 @@ time > .month {
 .edit_bet, .delete_bet, .bet-save-edit, .bet-cancel-edit {
   cursor: pointer;
 }
+
+#img-header {
+  width: 500px;
+  height: 90px;
+}
+
+.time-sibar {
+  color: rgb(95, 99, 104)!important;
+}
+
+.list-member .fa-user{
+ font-size:80px
+}
+
+.list-member .searchable-container{
+  margin-top:40px;
+}
+
+.list-member .glyphicon-lg{
+  font-size:4em
+}
+.list-member .info-block{
+  border-right:5px solid #E6E6E6;margin-bottom:25px
+}
+.list-member .info-block .square-box {
+  width:120px;
+  min-height:120px;
+  margin-right:22px;
+  text-align:center!important;
+  background-color:#676767;
+  padding:20px 0
+}
+.list-member .info-block:hover .info-block.block-info {
+  border-color:#20819e
+}
+
+.list-member .info-block.block-info .square-box {
+  background-color:#5bc0de;
+  color:#FFF
+}
+
+.logo-score {
+  position: relative;
+}
+
+.logo-score>div {
+  position: absolute;
+  font-size: 100px;
+  top: 0px;
+  left: 39%;
+}
+
+.logo-score:hover > div{
+  color: white;
+}

@@ -1,0 +1,24 @@
+<div class="container bootstrap snippet list-member">
+  <div class="row">
+    <div class="searchable-container">
+      <% members.each do |e| %>
+        <div class="items col-xs-12 col-sm-6 col-md-6 col-lg-6 clearfix">
+          <div class="info-block block-info clearfix">
+            <div class="square-box pull-left">
+              <span> <img src="/assets/<%= e.avatar %>"> </span>
+            </div>
+            <h5 class="text-success"><%= e.name %></h5>
+            <p><i class="fa fa-map-marker" aria-hidden="true"></i>: <%= e.country.name %></p>
+            <p>
+              <i class="fa fa-birthday-cake" aria-hidden="true"></i>:
+                <%= I18n.l e.birthday, format: :date_month_year %>
+            </p>
+            <span><i class="fa fa-users" aria-hidden="true"></i>:
+              <%= e.team.name %>
+            </span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

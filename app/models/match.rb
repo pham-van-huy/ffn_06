@@ -8,4 +8,8 @@ class Match < ApplicationRecord
   scope :team_limit, ->{limit Settings.limit_bet}
   scope :matched, ->{where("end_time < ?", DateTime.now)}
   scope :vs, ->(arr_id, id){where.not(id: id).where("team1_id IN (?) AND team2_id IN (?)", arr_id, arr_id)}
+
+  def get_team id
+    Team.find_by_id id
+  end
 end

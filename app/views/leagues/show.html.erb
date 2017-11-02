@@ -29,6 +29,8 @@
                 <dd><%= @match_size %></dd>
                 <dt><%= t ".matchs_completed" %></dt>
                 <dd><%= matched(@league.matchs).size %></dd>
+                <dt><%= t ".teams" %></dt>
+                <dd><%= ranking_in_leagues(@league.matchs).size %></dd>
               </dl>
             </div>
           </div>
@@ -81,7 +83,38 @@
                       </div>
                     </div>
                     <div class="tab-pane" id="tab-3">
-                      <!-- content of tab -->
+                      <div>
+                        <section id="sidebar-popular-post">
+                          <div class="ccr-gallery-ttile">
+                            <span></span>
+                            <p><strong><%= t "layouts.sibar_right.name_table" %></strong></p>
+                          </div>
+                          <div>
+                            <ul id="ranking_table">
+                              <% ranking_in_leagues(@league.matchs).each_with_index do |e, index| %>
+                                <li>
+                                  <img src="/assets/<%= e[:team].logo %>">
+                                  <a> <%=  e[:team].name  %> </a>
+                                  <div class="date-like-comment">
+                                    <span class="date">
+                                      <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+                                      <%= index + 1 %>
+                                    </span>
+                                    <a class="like" href="javascript:void(0)">
+                                      <i class="fa fa-futbol-o" aria-hidden="true"></i>
+                                      <%= e[:score] %>
+                                    </a>
+                                    <a class="like" href="javascript:void(0)">
+                                      <i class="fa fa-bolt" aria-hidden="true"></i>
+                                      <%= e[:match].size %>
+                                    </a>
+                                  </div>
+                                </li>
+                              <% end %>
+                            </ul>
+                          </div>
+                        </section>
+                      </div>
                     </div>
                   </div>
                 </div>

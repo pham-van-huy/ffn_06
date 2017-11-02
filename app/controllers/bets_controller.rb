@@ -22,8 +22,9 @@ class BetsController < ApplicationController
 
   def update
     new_coin = current_user.coin + @bet.coin - params[:coin].to_i
-    current_user.update!(coin: new_coin)
-    @bet.update_attributes!(team1_goal: params[:team1_goal], team2_goal: params[:team2_goal], coin: params[:coin])
+    @bet.update_attributes(team1_goal: params[:team1_goal], team2_goal: params[:team2_goal], coin: params[:coin])
+    new_coin -= params[:coin].to_i
+    current_user.update(coin: new_coin)
     respond_to do |format|
       msg = {status: true, message: t("controller.bets.update_success")}
       format.json{render json: msg}
@@ -36,7 +37,9 @@ class BetsController < ApplicationController
   end
 
   def destroy
+    new_coin = current_user.coin + @bet.coin
     if @bet.destroy
+      current_user.update!(coin: new_coin)
       respond_to do |format|
         msg = {status: true, message: t("controller.bets.delete_success")}
         format.json{render json: msg}
@@ -74,7 +77,7 @@ class BetsController < ApplicationController
   def check_destroy
     @bet = Bet.find_by_id params[:id]
     time_valid = @bet.match.start_time + Settings.valid_bet.minutes
-    unless @bet && time_valid.future?
+    unless @bet && time_valid.future? && logged_in?
       respond_to do |format|
         msg = {status: false, message: t("controller.bets.canot_delete")}
         format.json{render json: msg}

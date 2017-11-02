@@ -18,15 +18,10 @@ en:
       placeholder: "Search teams and league..."
       foobal: "Foobal"
       news: "News"
-      text_logo: "The Daily News Source"
+      text_logo: "The Daily News Sport"
       home: "Home"
       leagues: "Leagues"
       teams: "Teams"
-      contact: "Contact"
-      europe: "Europe"
-      usa: "USA"
-      middle_east: "Middle East"
-      social_and_it: "Social and IT"
       culture: "Culture"
       language: "Language"
       english: "English"
@@ -36,6 +31,8 @@ en:
       log_out: "Log out"
     sibar_right:
       name_table: "Ranking of teams"
+      latest_new: "Latest news"
+      members: "Members"
   news:
     index:
       title: "Homepage"
@@ -109,6 +106,7 @@ en:
     index:
       title: "List teams"
       more: "More..."
+    modal:
       logo_team: "Logo's team"
       description: "Description"
       details: "Details"
@@ -134,6 +132,7 @@ en:
       happenning: "Happenning"
       completed: "Completed"
       matchs_completed: "Matchs completed:"
+      teams: "Teams"
       waiting: "Waiting"
       introduction: "Introduction"
       league_schedule: "League schedule"
