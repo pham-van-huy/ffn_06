@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
-  before_action :ranking_team
+  include LeaguesHelper
+  before_action :ranking_team, :latest_news
 
   def ranking_team
     teams = Team.all
@@ -9,6 +10,10 @@ class ApplicationController < ActionController::Base
       e.score = ranking_score[e.id]
     end
     @teams_ranked = teams.sort{|x, y| y.score <=> x.score}
+  end
+
+  def latest_news
+    @latest_news = New.includes(:comments).limit(Settings.limit_last_new)
   end
 
   private
@@ -28,11 +33,19 @@ class ApplicationController < ActionController::Base
     score = 0
     if is_one
       maths.each do |e|
-        score += e.team1_goal - e.team2_goal
+        if e.team1_goal > e.team2_goal
+          score += 3
+        elsif e.team1_goal == e.team2_goal
+          score += 1
+        end
       end
     else
       maths.each do |e|
-        score += e.team2_goal - e.team1_goal
+        if e.team1_goal < e.team2_goal
+          score += 3
+        elsif e.team1_goal == e.team2_goal
+          score += 1
+        end
       end
     end
     score

@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :comments, only: [:create, :update, :destroy]
   resources :teams, only: [:index]
   resources :leagues, only: [:index, :show]
+  resources :bets, only: [:create, :update, :destroy]
+  resources :matchs, only: [:show]
 end

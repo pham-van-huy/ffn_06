@@ -1,8 +1,9 @@
 $(document).ready(function() {
     $("#container_comment").on("click", ".fa-pencil",function () {
+      alert(123)
       var p = $(this).parents(".name_author").find(".content_comment")
       var content = p.text()
-      var replace = "<input value='" + content + "class='form-control' data-content='" + content + "'>"
+      var replace = "<input value='" + content + "' class='form-control' data-content='" + content + "'>"
       replace += "<button class='btn btn-danger pull-right'>" + I18n.t("users.edit.cancel") + "</button>"
       replace += "<button class='btn btn-success pull-right'>" + I18n.t("users.edit.save") + "</button>"
       p.replaceWith(replace)
@@ -13,7 +14,7 @@ $(document).ready(function() {
       var root_content = i.data("content")
       i.siblings(".btn-success").remove()
       this.remove()
-      i.replaceWith("<p class='ontent_commen'>" + root_content + "</p>")
+      i.replaceWith("<p class='content_comment'>" + root_content + "</p>")
     })
 
     $("#container_comment").on("click", ".btn-success",function () {

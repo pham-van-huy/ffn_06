@@ -32,11 +32,14 @@
               </div>
             </div>
           </div>
-          <div class="panel-footer panel-primary">
+          <div class="panel-footer panel-primary style-footer">
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>:
               <%= match.stadium.name %>, <%= match.stadium.country.name %>
             </p>
+            <% if valid_bet? match %>
+              <%= link_to t(".betting"), match_path(match), class: "btn btn-success btn-sm btn_search goto-bet" %>
+            <% end %>
           </div>
         </div>
       </div>
@@ -76,11 +79,14 @@
               </div>
             </div>
           </div>
-          <div class="panel-footer panel-primary">
+          <div class="panel-footer panel-primary style-footer">
             <p>
               <i class="fa fa-map-marker" aria-hidden="true"></i>:
               <%= match.stadium.name %>, <%= match.stadium.country.name %>
             </p>
+            <% if valid_bet? match %>
+              <%= link_to t(".betting"), match_path(match), class: "btn btn-success btn-sm btn_search goto-bet" %>
+            <% end %>
           </div>
         </div>
       </div>

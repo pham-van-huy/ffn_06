@@ -1,11 +1,11 @@
 en:
   time:
     formats:
-      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year_concise: "%d-%m-%Y-%H:%M"
       date_month_year: "%d-%m-%Y"
   date:
     formats:
-      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year_concise: "%d-%m-%Y-%H:%M"
       date_month_year: "%d-%m-%Y"
   layouts:
     application:
@@ -18,15 +18,10 @@ en:
       placeholder: "Search teams and league..."
       foobal: "Foobal"
       news: "News"
-      text_logo: "The Daily News Source"
+      text_logo: "The Daily News Sport"
       home: "Home"
       leagues: "Leagues"
       teams: "Teams"
-      contact: "Contact"
-      europe: "Europe"
-      usa: "USA"
-      middle_east: "Middle East"
-      social_and_it: "Social and IT"
       culture: "Culture"
       language: "Language"
       english: "English"
@@ -36,6 +31,8 @@ en:
       log_out: "Log out"
     sibar_right:
       name_table: "Ranking of teams"
+      latest_new: "Latest news"
+      members: "Members"
   news:
     index:
       title: "Homepage"
@@ -84,6 +81,15 @@ en:
       not_login: "Please login"
     leagues:
       not_found: "This league is not found"
+    bets:
+      create_fail: "Sorry! Your betting is fail"
+      create_success: "Your betting is successfuly, Good luck!"
+      canot_update: "Can not update this bet"
+      canot_update: "Can not delete this bet"
+      update_success: "Update success, Good luck!"
+      delete_success: "Delete success, Good luck!"
+      delete_fail: "Delete fail"
+      update_fail: "Update fail!"
   sessions:
     new:
       title: "Login"
@@ -98,6 +104,7 @@ en:
     index:
       title: "List teams"
       more: "More..."
+    modal:
       logo_team: "Logo's team"
       description: "Description"
       details: "Details"
@@ -123,6 +130,7 @@ en:
       happenning: "Happenning"
       completed: "Completed"
       matchs_completed: "Matchs completed:"
+      teams: "Teams"
       waiting: "Waiting"
       introduction: "Introduction"
       league_schedule: "League schedule"
@@ -130,3 +138,29 @@ en:
       vs: "  VS  "
       start: "Start"
       end: "End"
+    match:
+      coin: "Coin"
+      betting: "Betting"
+      integer: "Please enter an integer, not a float"
+      coin: "Your coin not enough, please enter other number!"
+      validate_value: "Goal much >= 0 and coin >= 1, please enter other number!"
+  matchs:
+    show:
+      title: "Detail match"
+      vs: "VS"
+      status: "Status"
+      completed: "Completed"
+      waiting: "Waiting"
+      start_at: "Start at"
+      end_time: "End time"
+      address: "Address"
+      statistic: "Statistic %{team}"
+      bet: "Bet"
+    list_match:
+      win: "Win"
+      equal: "Equal"
+      lose: "Lose"
+    bet:
+      score: "Score"
+      bet: "Betting"
+      coin: "Coin"
