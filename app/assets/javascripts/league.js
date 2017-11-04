@@ -74,4 +74,12 @@ $(document).ready(function() {
       }
     })
   })
+
+  $("#league_remove_logo").on("change", function() {
+    if ($(this).is(":checked")) {
+      $(".image-preview").css("display", "")
+    } else {
+      $(".image-preview").css("display", "none")
+    }
+  })
 })

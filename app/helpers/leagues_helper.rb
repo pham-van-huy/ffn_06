@@ -47,4 +47,8 @@ module LeaguesHelper
     end
     score
   end
+
+  def country_continent continent_id
+    Country.where("continent_id = ?", continent_id).select(:id, :name)
+  end
 end

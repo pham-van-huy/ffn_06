@@ -198,3 +198,13 @@ en:
         choise_country: "Choise country"
         create_success: "Create successfuly"
         create_fail: "Create fail"
+      edit:
+        title: "Edit league"
+        save: "Save"
+        change_logo: "Change logo"
+        not_found: "Not found this league"
+        update_success: "Update successfuly"
+        update_fail: "Update fail"
+      delete:
+        delete_success: "Delete successfuly"
+        delete_fail: "Delete fail"

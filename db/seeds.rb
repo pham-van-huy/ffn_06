@@ -71,7 +71,7 @@ Continent.all.each do |n|
       name: Faker::Name.unique.name,
       time: Faker::Date.between(1.month.ago, 3.month.from_now),
       introduction: Faker::Lorem.paragraph(3),
-      logo: "image_default.jpg"
+      logo: nil
     )
   end
 end

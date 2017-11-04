@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get "/", to: "leagues#home_admin"
     get "/ajax_get_countries", to: "countries#get_by_league"
     resources :leagues, except: [:show] do
-      resources :matchs, only: [:create]
+      resources :matchs, only: [:create, :new]
     end
     resources :news, except: [:show]
   end

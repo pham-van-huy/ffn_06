@@ -8,12 +8,15 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in">
           <div class="panel-body">
-            <%= form_for @league, url: admin_leagues_path do |f|%>
+            <%= form_for @league, url: admin_league_path do |f|%>
               <%= render "shared/error_messages", object: f.object %>
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <%= f.text_field :name, class: "form-control", placeholder: t(".name"), required: true %>
+                    <%= f.text_field :name,
+                      class: "form-control",
+                      placeholder: t(".name"),
+                      required: true%>
                   </div>
                   <div class="form-group">
                     <%= f.text_area :introduction, class: "form-control", placeholder: t(".introduction"), rows: 6 %>
@@ -33,8 +36,10 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label><%= t(".country") %></label>
-                    <select class="form-control" name="league[country_id]" id="league_country_id" disabled>
-                    </select>
+                    <%= select("league", "country_id",
+                      country_continent(@league.continent_id).collect {|p| [ p.name, p.id ] },
+                      {prompt: t(".country")},
+                      class: "form-control") %>
                   </div>
                 </div>
               </div>
@@ -53,19 +58,18 @@
                       </div>
                       </span>
                     </div>
+                    <img src="<%= @league.logo %>">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="well well-sm well-primary">
-                    <form class="form form-inline " role="form">
-                      <div class="form-group">
-                        <%= date_field :league, :time, class: "form-control", placeholder: t(".date"), required: true %>
-                      </div>
-                      <div class="form-group">
-                        <%= f.submit t(".save"), class: "btn btn-success btn-sm" %>
-                        <%= link_to t(".cancel"), admin_leagues_path, class: "btn btn-danger btn-sm cancel-league"%>
-                      </div>
-                    </form>
+                    <div class="form-group">
+                      <%= date_field :league, :time, class: "form-control", placeholder: t(".date"), required: true %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.submit t(".save"), class: "btn btn-success btn-sm" %>
+                      <%= link_to t(".cancel"), admin_leagues_path, class: "btn btn-danger btn-sm cancel-league"%>
+                    </div>
                   </div>
                 </div>
               </div>

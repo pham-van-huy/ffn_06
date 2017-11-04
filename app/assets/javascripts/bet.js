@@ -99,10 +99,6 @@ $(document).ready(function() {
     var old_coin = parseInt(tds.find(".bet_coin").data("coin"))
     var bet_id = parseInt($(this).data("bet-id"))
     var coin_user = $(this).data('coin-user')
-<<<<<<< be9e7df9c25d32c0a5399c8586b21cab5e743dd2
-=======
-    console.log(data.team1_goal, data.team2_goal, data.coin, coin_user + old_coin, data)
->>>>>>> fix before demo 2
     if (validate(data.team1_goal, data.team2_goal, data.coin, coin_user + old_coin)) {
       $.ajax({
         type: "PATCH",

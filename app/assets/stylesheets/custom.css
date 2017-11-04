@@ -1292,3 +1292,11 @@ border-color: rgb(53, 126, 189);
 .cancel-league {
   float: right;
 }
+
+.change_logo {
+  color: #5f5f5f;
+}
+
+#league_remove_logo {
+  margin: 0px;
+}
