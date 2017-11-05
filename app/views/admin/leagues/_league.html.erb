@@ -10,7 +10,7 @@
     <%= I18n.l league.time, format: :date_month_year %>
   </td>
   <td class="padding-top">
-    <%= matched(league.matchs).size %>/<%= league.matchs.size %>
+    <%= link_to matched(league.matchs).size.to_s + "/" + league.matchs.size.to_s, admin_league_matchs_path(league) %>
     <a href="<%= new_admin_league_match_path league %>">
       <i class="fa fa-plus-circle" aria-hidden="true"></i>
     </a>

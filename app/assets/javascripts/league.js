@@ -35,6 +35,8 @@ $(function() {
     $('.image-preview-clear').hide();
     $('.image-preview-input input:file').val("");
     $(".image-preview-input-title").text(I18n.t("admin.leagues.new.browse"));
+    $("#old-avatar").css("display", "")
+    $("#new_img").attr("src", "")
   });
   // Create the preview image
   $(".image-preview-input input:file").change(function (){
@@ -43,6 +45,7 @@ $(function() {
       width:250,
       height:200
     });
+    var show_img = $("#new_img")
     var file = this.files[0];
     var reader = new FileReader();
     // Set preview image into the popover data-content
@@ -51,6 +54,8 @@ $(function() {
       $(".image-preview-clear").show();
       $(".image-preview-filename").val(file.name);
       img.attr('src', e.target.result);
+      show_img.attr('src', e.target.result);
+      $("#old-avatar").css("display", "none")
       $(".image-preview").attr("data-content",$(img)[0].outerHTML).popover("show");
     }
     reader.readAsDataURL(file);

@@ -1,52 +1,41 @@
 <aside id="ccr-right-section" class="col-md-4 ccr-home">
-  <section id="social-buttons">
-    <ul>
-      <li>
-        <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-        <p><span class="bubble"></span><span class="count">202</span> Like</p>
-      </li>
-      <li>
-        <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-        <p><span class="bubble"></span><span class="count">202</span> Like</p>
-      </li>
-      <li>
-        <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-        <p><span class="bubble"></span><span class="count">202</span> Follow</p>
-      </li>
-      <li>
-        <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-        <p><span class="bubble"></span><span class="count">202</span> Like</p>
-      </li>
-    </ul>
-
-  </section>
-
-  <section id="sidebar-popular-post">
-    <div class="ccr-gallery-ttile">
-      <span></span>
-      <p><strong><%= t "layouts.sibar_right.name_table" %></strong></p>
-    </div>
-    <div>
-      <ul id="ranking_table">
-        <% @teams_ranked.each_with_index do |team, index| %>
+  <% if logged_in? %>
+    <section id="sidebar-popular-post">
+      <div class="ccr-gallery-ttile">
+        <span></span>
+        <p><strong><%= t "layouts.sibar_right.name_table" %></strong></p>
+      </div>
+      <div>
+        <ul id="ranking_table">
           <li>
-            <img src="/assets/<%= team.logo %>" alt="Avatar">
-            <%= link_to team.name, "javascript:void(0)"%>
-            <div class="date-like-comment">
-              <span class="date">
-                <i class="fa fa-sort-amount-desc" aria-hidden="true"></i>
-                <%= index + 1 %>
-              </span>
-              <a class="like" href="javascript:void(0)">
-                <i class="fa fa-futbol-o" aria-hidden="true"></i>
-                <%= team.score %>
-              </a>
-            </div>
+            <table class="table">
+              <tbody>
+                <tr>
+                  <% @bets.each do |bet| %>
+                      <td>
+                        <h5><strong><%= bet.match.teams_col_one.name %></strong></h5>
+                        <p><%= bet.match.team1_goal %> - <%= bet.match.team2_goal %></p>
+                      </td>
+                      <td>
+                        <h5><strong><%= bet.match.teams_col_two.name %></strong></h5>
+                        <p><%= bet.team1_goal %> - <%= bet.team2_goal %></p>
+                      </td>
+                      <td>
+                        <% if bet.result %>
+                          <label class="label label-success"><%= t ".win", money: bet.coin %></label>
+                        <% else %>
+                          <label class="label label-danger"><%= t ".lose", money: bet.coin %></label>
+                        <% end %>
+                      </td>
+                  <% end %>
+                </tr>
+              </tbody>
+            </table>
           </li>
-        <% end %>
-      </ul>
-    </div>
-  </section>
+        </ul>
+      </div>
+    </section>
+  <% end %>
 
   <section id="sidebar-older-post">
     <div class="ccr-gallery-ttile">

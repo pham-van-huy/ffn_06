@@ -1,5 +1,6 @@
 class Admin::LeaguesController < ApplicationController
   before_action :valid_league, only: [:update, :destroy]
+  before_action :check_admin
   def home_admin
     render :home_admin
   end
@@ -61,5 +62,8 @@ class Admin::LeaguesController < ApplicationController
       flag[:danger] = t "admin.leagues.edit.not_found"
       redirect_to admin_leagues_path
     end
+  end
+  def check_admin
+    redirect_to root_path unless logged_in? && current_user.role == "admin"
   end
 end

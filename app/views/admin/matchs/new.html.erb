@@ -1,0 +1,107 @@
+<% provide(:title, t(".create", league: @league.name)) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-primary">
+        <div class="panel-heading row">
+            <h4 class="panel-title color-white"><%= t ".create", league: @league.name %></h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <%= form_for @match, url: admin_league_matchs_path do |f|%>
+              <%= render "shared/error_messages", object: f.object %>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t(".team_one") %></label>
+                    <%= select("match", "team1_id",
+                      Team.all.collect {|p| [ p.name, p.id ] },
+                      {prompt: t(".choise_team")},
+                      class: "form-control",
+                      required: true)%>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t(".team_two") %></label>
+                    <%= select("match", "team2_id",
+                      Team.all.collect {|p| [ p.name, p.id ] },
+                      {prompt: t(".choise_team")},
+                      class: "form-control",
+                      required: true) %>
+                  </div>
+                </div>
+              </div>
+              <div class="row" id="time-of-match">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label><%= t(".start_time") %></label>
+                      <input class="time start form-control" required="required" name="match[starttime]">
+                    </div>
+                    <div class="col-md-6">
+                      <label><%= t(".date") %></label>
+                      <input class="date start form-control" required="required" name="match[startdate]">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label><%= t(".end_time") %></label>
+                      <input class="time end form-control" required="required" name="match[endtime]">
+                    </div>
+                    <div class="col-md-6">
+                      <label><%= t(".date") %></label>
+                      <input class="date end form-control" required="required" name="match[enddate]">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t ".goal_team1" %></label>
+                    <%= f.number_field :team1_goal, class: "form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t ".goal_team2" %></label>
+                    <%= f.number_field :team2_goal, class: "form-control"%>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t(".stadium") %></label>
+                    <%= select("match", "stadium_id",
+                      @stadiums.collect {|p| [ p.name, p.id ] },
+                      {prompt: t(".stadium")},
+                      class: "form-control",
+                      required: true) %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><br></label>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <%= f.submit t(".save"), class: "btn btn-success btn-sm"%>
+                        </div>
+                        <div class="col-md-3 col-md-offset-6">
+                            <%= link_to t(".cancel"), admin_leagues_path, class: "btn btn-danger btn-sm" %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -124,7 +124,7 @@ legend{
   padding-top: 50px;
 }
 
-#ranking_table {
+.ranking_table {
   max-height: 405px;
   overflow-y: scroll;
 }
@@ -133,7 +133,7 @@ legend{
   flex-direction: column;
 }
 
-#ranking_table li:last-child {
+.ranking_table li:last-child {
   margin-bottom: 0!important;
 }
 
@@ -1299,4 +1299,12 @@ border-color: rgb(53, 126, 189);
 
 #league_remove_logo {
   margin: 0px;
+}
+
+input.time {
+  background-color: rgb(255, 255, 255)
+}
+
+.fb-share-button.fb_iframe_widget {
+  float: right;
 }

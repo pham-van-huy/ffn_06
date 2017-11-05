@@ -1,6 +1,5 @@
 $(document).ready(function() {
     $("#container_comment").on("click", ".fa-pencil",function () {
-      alert(123)
       var p = $(this).parents(".name_author").find(".content_comment")
       var content = p.text()
       var replace = "<input value='" + content + "' class='form-control' data-content='" + content + "'>"

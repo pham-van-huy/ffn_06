@@ -5,7 +5,7 @@
       <%= form_for @user, url: signup_path,html: {class: "form"} do |f| %>
         <legend><%= t ".sign_up" %></legend>
         <h4><%= t ".introduction" %></h4>
-        <%= render "shared/error_messages" %>
+         <%= render "shared/error_messages", object: f.object %>
         <%= f.text_field :name, class: "form-control input-lg", placeholder: t(".your_name") %>
         <%= f.email_field :email, class: "form-control input-lg", placeholder: t(".your_email") %>
         <%= f.password_field :password, class: "form-control input-lg", placeholder: t(".password") %>

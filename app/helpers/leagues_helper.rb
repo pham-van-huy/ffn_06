@@ -24,10 +24,18 @@ module LeaguesHelper
     team_col_two = matchs.group_by { |e| e[:team2_id] }
     teams = team_col_one.merge(team_col_two){ |k, one_value, two_value| [one_value, two_value] }
     team_score = teams.map do |key, match|
-      if key == match.first.team1_id
-        {score: score_of_team(match, key), match: match, team: match.first.teams_col_one}
+      if match.size > 1
+        if key == match.first.first.team1_id
+          {score: score_of_team(match, key), match: match, team: match.first.first.teams_col_one}
+        else
+          {score: score_of_team(match, key), match: match, team: match.first.first.teams_col_two}
+        end
       else
-        {score: score_of_team(match, key), match: match, team: match.first.teams_col_two}
+        if key == match.first.team1_id
+          {score: score_of_team(match, key), match: match, team: match.first.teams_col_one}
+        else
+          {score: score_of_team(match, key), match: match, team: match.first.teams_col_two}
+        end
       end
     end
     team_score.sort! do |x, y|
@@ -39,10 +47,18 @@ module LeaguesHelper
   def score_of_team team, key
     score = 0
     team.each do |e|
-      if key == e.team1_id
-        score += e.team1_goal == e.team2_goal ? 1 : e.team1_goal > e.team2_goal ? 3 : 0
+      if team.size >= 2
+        if key == e.first.team1_id
+          score += e.first.team1_goal == e.first.team2_goal ? 1 : e.first.team1_goal > e.first.team2_goal ? 3 : 0
+        else
+          score += e.first.team1_goal == e.first.team2_goal ? 1 : e.first.team1_goal > e.first.team2_goal ? 0 : 3
+        end
       else
-        score += e.team1_goal == e.team2_goal ? 1 : e.team1_goal > e.team2_goal ? 0 : 3
+        if key == e.team1_id
+          score += e.team1_goal == e.team2_goal ? 1 : e.team1_goal > e.team2_goal ? 3 : 0
+        else
+          score += e.team1_goal == e.team2_goal ? 1 : e.team1_goal > e.team2_goal ? 0 : 3
+        end
       end
     end
     score

@@ -1,4 +1,7 @@
 en:
+  datejs:
+    date: "yyyy-m-d"
+    time: "HH:mm"
   time:
     formats:
       date_month_year_concise: "%d-%m-%Y-%H:%M"
@@ -30,9 +33,11 @@ en:
       profile: "Profile"
       log_out: "Log out"
     sibar_right:
-      name_table: "Ranking of teams"
+      name_table: "Latest bets"
       latest_new: "Latest news"
       members: "Members"
+      win: "Win %{money} $"
+      lose: "Lose %{money} $"
   news:
     index:
       title: "Homepage"
@@ -140,6 +145,7 @@ en:
       vs: "  VS  "
       start: "Start"
       end: "End"
+      list_team: "List teams"
     match:
       coin: "Coin"
       betting: "Betting"
@@ -166,6 +172,10 @@ en:
       score: "Score"
       bet: "Betting"
       coin: "Coin"
+      waiting: "Waiting"
+      win: "Win"
+      lose: "Lose"
+      result: "Result"
   admin:
     leagues:
       home_admin:
@@ -208,3 +218,30 @@ en:
       delete:
         delete_success: "Delete successfuly"
         delete_fail: "Delete fail"
+    matchs:
+      new:
+        create: "Create a match in %{league}"
+        choise_team: "Choise a team"
+        team_one: "Team one"
+        team_two: "Team two"
+        start_time: "Start time"
+        end_time: "End time"
+        stadium: "Choise stadium"
+        goal_team1: "Goal of team one"
+        goal_team2: "Goal of team two"
+        save: "Save"
+        date: "Date"
+        create_success: "Create successfuly"
+        create_fail: "Create fail"
+      index:
+        title: "List matchs of %{league}"
+        team_one: "Name of team first"
+        team_two: "Name of team second"
+        goal: "goal"
+        status: "Satus"
+        bets: "Bets"
+        total_money: "Total coin"
+      match:
+        waiting: "Waiting"
+        completed: "Completed"
+        result: "Result"

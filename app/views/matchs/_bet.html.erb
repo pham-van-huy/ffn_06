@@ -6,6 +6,7 @@
           <tr>
             <th><%= match.teams_col_one.name %></th>
             <th><%= match.teams_col_two.name %></th>
+            <th><%= t ".result" %></th>
             <th><%= t ".coin" %></th>
           </tr>
         </thead>
@@ -20,6 +21,15 @@
               </td>
               <td><i class="fa fa-usd" aria-hidden="true"></i>
                 <span class="bet_coin" data-coin="<%= e.coin %>"><%= e.coin %></span>
+              </td>
+              <td>
+                <% if e.result.nil? %>
+                  <label class="label label-primary"><%= t ".waiting" %></label>
+                <% elsif e.result %>
+                  <label class="label label-success"><%= t ".win" %></label>
+                <% else %>
+                  <label class="label label-danger"><%= t ".lose" %></label>
+                <% end %>
               </td>
               <% if valid_bet? match %>
                 <td>

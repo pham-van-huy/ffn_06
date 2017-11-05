@@ -1,0 +1,26 @@
+<% matchs.each do |match| %>
+  <tr>
+    <td><strong><%= match.teams_col_one.name %></strong></td>
+    <td><strong><%= match.teams_col_two.name %></strong></td>
+    <% if match.end_time.future? %>
+      <td><label class="label label-warning"> <%= t(".waiting") %> </label></td>
+    <% else %>
+      <td><%= match.team1_goal %>-<%= match.team2_goal %></td>
+    <% end %>
+    <td><label class="label label-<%= match.end_time.future? ? 'warning' : 'success' %>">
+      <%= match.end_time.future? ? t(".waiting") : t(".completed") %>
+    </label></td>
+    <td><%= match.bets.size %></td>
+    <td><%= get_total_coin_beted match.bets %></td>
+    <td>
+      <% if match.end_time.future? %>
+        <label class="label label-warning"> <%= t(".waiting") %> </label>
+      <% else %>
+        <label class="label label-completed">
+          <i class="fa fa-usd" aria-hidden="true"></i>
+          <%= statistic_coin match.bets %>
+        </label>
+      <% end %>
+    </td>
+  </tr>
+<% end %>

@@ -7,7 +7,7 @@ class LeaguesController < ApplicationController
   def show
     session[:return_to] = request.referer
     @league = League.includes(:country, :continent,
-      matchs: [:teams_col_one, :teams_col_two, :bets, stadium: [:country]]).find_by_id params[:id]
+      matchs: [:teams_col_one, :teams_col_two, stadium: [:country]]).find_by_id params[:id]
     unless @league
       flash[:danger] = t "controller.leagues.not_found"
       redirect_to root_path
