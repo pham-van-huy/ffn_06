@@ -1,3 +1,6 @@
+.container, #ccr-right-section {
+    margin-top: 0px!important;
+}
 #wrap{
 background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
 /* Mozilla Firefox */
@@ -1307,4 +1310,21 @@ input.time {
 
 .fb-share-button.fb_iframe_widget {
   float: right;
+}
+
+.new-form-group {
+  margin-bottom: 4px;
+}
+
+.new_content-quill {
+  display: none;
+}
+
+.ql-container.ql-snow {
+  height: 375px;
+  display: block!important;
+}
+
+.label-completed {
+
 }

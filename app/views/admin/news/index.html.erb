@@ -1,0 +1,39 @@
+<% provide(:title, t(".title")) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="main-box clearfix">
+        <div class="table-responsive">
+          <div class="panel panel-default">
+            <div class="panel-heading panel-heading-leagues">
+              <%= t ".list_leagues" %>
+              <a href="<%= new_admin_news_path %>"><i class="fa fa-plus-circle" aria-hidden="true"></i> </a>
+            </div>
+            <div class="panel-body">
+              <table class="table user-list leagues-list">
+                <thead>
+                  <tr>
+                    <th style="width: 50%;"><span><%= t ".title_new" %></span></th>
+                    <th><span><%= t ".img" %></span></th>
+                    <th><span><%= t ".create_at" %></span></th>
+                    <th><span><%= t ".comments" %></span></th>
+                    <th><span><%= t ".manage" %></span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <%= render @news %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if @news.present? %>
+    <section class="bottom-border"></section>
+    <div class="digg_pagination">
+      <%= will_paginate @news, container: false %>
+    </div>
+  <% end %>
+</div>

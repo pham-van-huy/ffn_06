@@ -10,7 +10,7 @@
       </div>
     </p>
     <hr>
-      <p class="new-content"><%= @new.content %></p>
+      <p class="new-content"><%= @new.content.html_safe %></p>
     <hr>
 
     <% if logged_in? %>

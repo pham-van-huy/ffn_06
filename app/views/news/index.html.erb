@@ -7,10 +7,10 @@
 
   <% if @news.present? %>
     <section class="featured-world-news">
-      <div class="featured-world-news-img"><img src="assets/<%= @news.first.represent_image %>"></div>
+      <div class="featured-world-news-img"><img src="<%= @news.first.represent_image %>"></div>
       <div class="featured-world-news-post">
         <h5><%= @news.first.title %></h5>
-        <%= @news.first.content[0..400] %>...
+        <%= @news.first.content[0..400].html_safe %>...
         <div class="like-comment-readmore">
           <a href="#" class="comments"><i class="fa fa-comments-o"></i> <%= @news.first.count_comment %> </a>
           <%= link_to t(".read_more"), @news.first, class: "read-more" %></p>

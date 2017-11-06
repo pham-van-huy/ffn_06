@@ -10,8 +10,8 @@
           <li>
             <table class="table">
               <tbody>
-                <tr>
-                  <% @bets.each do |bet| %>
+                <% @bets.each do |bet| %>
+                  <tr>
                       <td>
                         <h5><strong><%= bet.match.teams_col_one.name %></strong></h5>
                         <p><%= bet.match.team1_goal %> - <%= bet.match.team2_goal %></p>
@@ -27,8 +27,8 @@
                           <label class="label label-danger"><%= t ".lose", money: bet.coin %></label>
                         <% end %>
                       </td>
-                  <% end %>
-                </tr>
+                  </tr>
+                <% end %>
               </tbody>
             </table>
           </li>
@@ -45,7 +45,7 @@
     <ul>
       <% @latest_news.each do |e| %>
         <li>
-          <img src="/assets/<%= e.represent_image %>">
+          <img src="<%= e.represent_image %>">
           <%= link_to e.title, news_path(e) %>
           <div class="date-like-comment">
             <span class="date"><time class="time-sibar">

@@ -16,7 +16,7 @@
       <% if match.end_time.future? %>
         <label class="label label-warning"> <%= t(".waiting") %> </label>
       <% else %>
-        <label class="label label-completed">
+        <label class="label label-success">
           <i class="fa fa-usd" aria-hidden="true"></i>
           <%= statistic_coin match.bets %>
         </label>

@@ -232,7 +232,10 @@ en:
         save: "Save"
         date: "Date"
         create_success: "Create successfuly"
+        delete_success: "Delete successfuly"
         create_fail: "Create fail"
+        delete_fail: "Create fail"
+        not_found: "Not found"
       index:
         title: "List matchs of %{league}"
         team_one: "Name of team first"
@@ -245,3 +248,26 @@ en:
         waiting: "Waiting"
         completed: "Completed"
         result: "Result"
+    news:
+      index:
+        title: "List news"
+        title_new: "Title of new"
+        img: "Image"
+        create_at: "Create at"
+        comments: "Comments"
+        manage: "Manage"
+      new:
+        title: "Create a new newspaper"
+        clear: "Clear"
+        browse: "Browse"
+        content: "Content of newspaper"
+        create_success: "Create successfuly"
+        title_new: "Title of new"
+        content: "Content of new"
+        save: "Save"
+        cancel: "Cancel"
+      edit:
+        title_new: "Title of new"
+        content: "Content of new"
+        save: "Save"
+        cancel: "Cancel"

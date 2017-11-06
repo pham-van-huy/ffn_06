@@ -11,9 +11,9 @@ module Admin::MatchsHelper
     total = 0
     bets.each do |bet|
       if bet.result
-        total += bet.coin
-      else
         total -= bet.coin
+      else
+        total += bet.coin
       end
     end
     total
