@@ -1082,3 +1082,7 @@ time > .month {
   color: white;
   text-align: center;
 }
+
+.width-td {
+  width: 15%;
+}
