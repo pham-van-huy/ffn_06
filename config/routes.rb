@@ -22,5 +22,6 @@ Rails.application.routes.draw do
       resources :matchs, only: [:create, :new, :index]
     end
     resources :news, except: [:show]
+    resources :teams, except: [:show]
   end
 end

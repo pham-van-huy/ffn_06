@@ -271,3 +271,20 @@ en:
         content: "Content of new"
         save: "Save"
         cancel: "Cancel"
+    teams:
+      index:
+        title: "Tist teams"
+        name: "Name"
+        logo: "Logo"
+        create_at: "Create at"
+        members: "Members"
+        manage: "Manage"
+      new:
+        title: "Create a new team"
+        name: "Name of team"
+        description: "Description of team"
+        clear: "Clear"
+        browse: "Browse"
+        save: "Save"
+        cancel: "Cancel"
+        select_country: "Select country"

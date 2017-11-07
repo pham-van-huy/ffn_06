@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20171107081556) do
   create_table "news", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "title"
-    t.text "content", limit: 4294967295
+    t.text "content"
     t.integer "count_comment"
     t.string "represent_image"
     t.datetime "created_at", null: false
