@@ -1,0 +1,120 @@
+<% provide(:title, t(".title")) %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <div>
+        <img src="/assets/<%= @match.teams_col_one.logo %>">
+        <% if @match.end_time.past? %>
+          <div class="score-match"><%= @match.team1_goal %>></div>
+        <% end %>
+      </div>
+      <h3><%= @match.teams_col_one.name %></h3>
+  </div>
+    <div class="col-md-2">
+      <h1><%= t ".vs" %></h1>
+    </div>
+    <div class="col-md-5">
+      <div>
+        <img src="/assets/<%= @match.teams_col_two.logo %>">
+        <% if @match.end_time.past? %>
+          <div class="score-match"><%= @match.team2_goal %>></div>
+        <% end %>
+      </div>
+      <h3><%= @match.teams_col_two.name %></h3>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <dl class="dl-horizontal">
+        <dt><%= t ".status" %></dt>
+        <% if @match.end_time.past? %>
+          <dd><span class="label label-danger"><%= t ".completed" %></span></dd>
+        <% end %>
+        <% if @match.start_time.future?  %>
+          <dd><span class="label label-primary"><%= t ".waiting" %></span></dd>
+        <% end %>
+        <dt><%= t ".start_at" %></dt>
+        <dd><%= I18n.l @match.start_time, format: :date_month_year_concise %></dd>
+        <dt><%= t ".end_time" %></dt>
+        <dd><%= I18n.l @match.end_time, format: :date_month_year_concise %></dd>
+        <dt><%= t ".address" %></dt>
+        <dd>
+          <%= @match.stadium.name %>, <%= @match.stadium.adress %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row m-t-sm">
+    <div class="col-lg-12">
+      <div class="panel blank-panel">
+        <div class="panel-heading">
+          <div class="panel-options">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#tab-1" data-toggle="tab" aria-expanded="false">
+                  <%= t ".statistic", team: @match.teams_col_one.name %>
+                </a>
+              </li>
+              <li>
+                <a href="#tab-2" data-toggle="tab" aria-expanded="true">
+                  <%= t ".statistic", team: @match.teams_col_two.name %>
+                </a>
+              </li>
+              <li>
+                <a href="#tab-3" data-toggle="tab" aria-expanded="true">
+                  <%= @match.teams_col_one.name %><%= t ".vs" %> <%= @match.teams_col_two.name %>
+                </a>
+              </li>
+              <li>
+                <a href="#tab-4" data-toggle="tab" aria-expanded="true">
+                  <%= t ".bet" %>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="tab-content">
+            <div class="tab-pane active" id="tab-1">
+              <div class=container>
+                <%= render partial: "matchs/list_match", locals: { matchs: @match_one, team_id: @match.teams_col_one.id } %>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-2">
+              <div class="container">
+                <%= render partial: "matchs/list_match", locals: { matchs: @match_two, team_id: @match.teams_col_two.id } %>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-3">
+              <div class="container">
+                <table class="table user-list">
+                  <tbody>
+                    <% @vs.each do |e| %>
+                      <tr>
+                        <td>
+                          <a href="javascript:void(0)" class="user-link"><%= e.teams_col_one.name %></a>
+                        </td>
+                        <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team1_goal %></td>
+                        <td class="text-center"><%= I18n.l @match.start_time, format: :date_month_year %></td>
+                        <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team2_goal %></td>
+                        <td>
+                          <a href="javascript:void(0)" class="user-link"><%= e.teams_col_two.name %></a>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab-4">
+              <div class="container">
+                <%= render partial: "matchs/bet", locals: {match: @match} %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

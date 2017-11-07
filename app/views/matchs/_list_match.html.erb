@@ -1,0 +1,57 @@
+<div class="row">
+    <div class="col-lg-12">
+      <div class="main-box clearfix">
+        <div class="table-responsive">
+          <table class="table user-list">
+            <tbody>
+              <% matchs.each do |e| %>
+                <% if e.team1_id == team_id %>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="user-link"><%= e.teams_col_one.name %></a>
+                    </td>
+                    <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team1_goal %></td>
+                    <td class="text-center">
+                      <% if e.team1_goal > e.team2_goal %>
+                        <span class="label label-success"><%= t ".win" %></span>
+                      <% elsif  e.team1_goal == e.team2_goal %>
+                        <span class="label label-warning"><%= t ".equal" %></span>
+                      <% else %>
+                        <span class="label label-danger"><%= t ".lose" %></span>
+                      <% end %>
+                    </td>
+                    <td class="text-center"><%= I18n.l @match.start_time, format: :date_month_year %></td>
+                    <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team2_goal %></td>
+                    <td>
+                      <a href="javascript:void(0)" class="user-link"><%= e.teams_col_two.name %></a>
+                    </td>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <td>
+                      <a href="javascript:void(0)" class="user-link"><%= e.teams_col_two.name %></a>
+                    </td>
+                    <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team2_goal %></td>
+                    <td class="text-center">
+                      <% if e.team2_goal > e.team1_goal %>
+                        <span class="label label-success"><%= t ".win" %></span>
+                      <% elsif  e.team1_goal == e.team2_goal %>
+                        <span class="label label-warning"><%= t ".equal" %></span>
+                      <% else %>
+                        <span class="label label-danger"><%= t ".lose" %></span>
+                      <% end %>
+                    </td>
+                    <td class="text-center"><%= I18n.l @match.start_time, format: :date_month_year %></td>
+                    <td><i class="fa fa-futbol-o" aria-hidden="true"></i> <%= e.team1_goal %></td>
+                    <td>
+                      <a href="javascript:void(0)" class="user-link"><%= e.teams_col_one.name %></a>
+                    </td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
