@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103021223) do
+ActiveRecord::Schema.define(version: 20171107081556) do
 
   create_table "bets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20171103021223) do
   create_table "news", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
     t.string "title"
-    t.text "content"
+    t.text "content", limit: 4294967295
     t.integer "count_comment"
     t.string "represent_image"
     t.datetime "created_at", null: false
@@ -116,6 +116,12 @@ ActiveRecord::Schema.define(version: 20171103021223) do
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_players_on_country_id"
     t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "social_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "provider"
+    t.string "provider_id"
   end
 
   create_table "stadia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

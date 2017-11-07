@@ -16,4 +16,23 @@ class SessionsController < ApplicationController
     log_out
     redirect_to root_url
   end
+
+  def facebook
+    data = HTTParty.get("https://graph.facebook.com/me?fields=id,name,email&access_token=#{params[:accessToken]}")
+    response = data.to_h
+    socialAccount = Social_account.find_by_provider_id response["id"]
+    if socialAccount
+      user = socialAccount.user
+      log_in user
+    else
+      user = User.new(name: response["name"], email: response["email"], coin: 0, password: Settings.password_default)
+      if user.save
+        Social_account.create(provider: "facebook", provider_id: response["id"], user_id: user.id)
+        log_in user
+      else
+        flash[:danger] = t "controller.sessions.login_error"
+      end
+    end
+    redirect_to root_path
+  end
 end
