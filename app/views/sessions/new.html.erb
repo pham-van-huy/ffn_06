@@ -8,6 +8,11 @@
         <%= f.password_field :password, class: "form-control input-lg", placeholder: t(".password") %>
         <%= f.submit t(".button"), class: "btn btn-lg btn-primary btn-block signup-btn" %>
       <% end %>
+      <fb:login-button
+        scope="public_profile,email"
+        onlogin="checkLoginState();">
+      </fb:login-button>
     </div>
   </div>
+  <%= javascript_include_tag "loginsocial", "data-turbo-link": "reload" %>
 </div>
