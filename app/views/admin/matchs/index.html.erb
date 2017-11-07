@@ -1,0 +1,26 @@
+<% provide(:title, t(".title", league: @league.name)) %>
+<div class="table-responsive">
+  <table class="table colored-header datatable project-list">
+    <thead>
+      <tr>
+        <th><%= t ".team_one" %></th>
+        <th><%= t ".team_two" %></th>
+        <th><%= t ".goal" %></th>
+        <th><%= t ".status" %></th>
+        <th><%= t ".bets" %></th>
+        <th><%= t ".total_money" %></th>
+        <th><%= t ".result" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render partial: "admin/matchs/match", collection:  @matchs %>
+    </tbody>
+  </table>
+</div>
+
+<% if @matchs.present? %>
+  <section class="bottom-border"></section>
+  <div class="digg_pagination">
+    <%= will_paginate @matchs, container: false %>
+  </div>
+<% end %>
