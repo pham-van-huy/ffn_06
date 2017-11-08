@@ -1,3 +1,6 @@
+.container, #ccr-right-section {
+    margin-top: 0px!important;
+}
 #wrap{
 background-image: -ms-linear-gradient(top, #FFFFFF 0%, #D3D8E8 100%);
 /* Mozilla Firefox */
@@ -124,7 +127,7 @@ legend{
   padding-top: 50px;
 }
 
-#ranking_table {
+.ranking_table {
   max-height: 405px;
   overflow-y: scroll;
 }
@@ -133,7 +136,7 @@ legend{
   flex-direction: column;
 }
 
-#ranking_table li:last-child {
+.ranking_table li:last-child {
   margin-bottom: 0!important;
 }
 
@@ -227,20 +230,20 @@ legend{
 
 .search-result-categories>li>a {
   color: #b6b6b6;
-  font-weight: 400
+  font-weight: 400;
 }
 
 .search-result-categories>li>a:hover {
   background-color: #ddd;
-  color: #555
+  color: #555;
 }
 
 .search-result-categories>li>a>.glyphicon {
-  margin-right: 5px
+  margin-right: 5px;
 }
 
 .search-result-categories>li>a>.badge {
-  float: right
+  float: right;
 }
 
 .search-results-count {
@@ -987,7 +990,10 @@ ul.tag-list li {
 
 .event-primary h2 {margin-top:10px}
 
-.event-primary { margin-bottom: 0px }
+.event-primary {
+  margin-bottom: 0px;
+  background-color: #347bb7;
+}
 
 .nopadding {
   padding: 0 !important
@@ -1005,7 +1011,7 @@ time.pink {
   background-color: rgb(197, 44, 102);
 }
 time.purple {
-  background-color: rgb(165, 82, 167)
+  background-color: rgb(165, 82, 167);
 }
 
 time.dkblue{
@@ -1085,4 +1091,239 @@ time > .month {
 
 .width-td {
   width: 15%;
+}
+.style-bet {
+  padding: 0px;
+  border-right: 1px solid white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.style-bet:last-child {
+  border-right: 0px;
+}
+
+.style-bet label {
+  color: white;
+  font-weight: inherit;
+  white-space: nowrap;
+}
+
+.style-footer {
+  padding: 0px!important;
+}
+
+.style-button-bet {
+  text-align: center;
+}
+
+.style-button-bet button {
+  margin-top: 5px;
+}
+
+.bet-win label {
+  color: greenyellow!important;
+}
+
+.bet-lose label {
+  color: darkorange!important;
+}
+
+.goto-bet {
+  display: block;
+}
+
+.button-search {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.edit_bet, .delete_bet, .bet-save-edit, .bet-cancel-edit {
+  cursor: pointer;
+}
+
+#img-header {
+  width: 500px;
+  height: 90px;
+}
+
+.time-sibar {
+  color: rgb(95, 99, 104)!important;
+}
+
+.list-member .fa-user{
+ font-size:80px
+}
+
+.list-member .searchable-container{
+  margin-top:40px;
+}
+
+.list-member .glyphicon-lg{
+  font-size:4em
+}
+.list-member .info-block{
+  border-right:5px solid #E6E6E6;margin-bottom:25px
+}
+.list-member .info-block .square-box {
+  width:120px;
+  min-height:120px;
+  margin-right:22px;
+  text-align:center!important;
+  background-color:#676767;
+  padding:20px 0
+}
+.list-member .info-block:hover .info-block.block-info {
+  border-color:#20819e
+}
+
+.list-member .info-block.block-info .square-box {
+  background-color:#5bc0de;
+  color:#FFF
+}
+
+.logo-score {
+  position: relative;
+}
+
+.logo-score>div {
+  position: absolute;
+  font-size: 100px;
+  top: 0px;
+  left: 39%;
+}
+
+.logo-score:hover > div{
+  color: white;
+}
+
+#ccr-left-section {
+  padding-right: 0px!important;
+}
+
+.home-admin {
+  margin-left: 18px;
+}
+
+.home-admin .panel-heading {
+  background: #2eb2bb;
+}
+
+.home-admin h3 {
+  color: white;
+}
+
+.home-admin .panel-body {
+  text-align: center;
+}
+
+.home-admin .panel-body a.btn.btn-default{
+  width: 15%;
+  padding: 12px 12px;
+}
+
+.home-admin .panel-body a.btn.btn-default:hover{
+  background: #2eb2bb;
+  color: white;
+}
+
+.leagues-list .padding-top {
+  padding-top: 19px;
+}
+
+.leagues-list img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.panel-heading-leagues {
+  background: #2eb2bb!important;
+  color: white!important;
+  font-weight: bold;
+}
+
+.panel-heading-leagues a{
+  float: right;
+  font-size: 25px;
+  color: white!important;
+  margin-top: -7px;
+}
+
+.panel-heading-leagues a:hover{
+  cursor: pointer;
+  color: white!white;
+  font-size: 35px;
+  margin-top: -14px;
+}
+
+.form-inline .form-group { margin-right:10px; }
+.well-primary {
+  background-color: #3498db;
+}
+
+.well-primary {
+color: rgb(255, 255, 255);
+background-color: rgb(66, 139, 202);
+border-color: rgb(53, 126, 189);
+}
+.glyphicon { margin-right:5px; }
+
+.container{
+  margin-top:20px;
+}
+.image-preview-input {
+  position: relative;
+  overflow: hidden;
+  margin: 0px;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.image-preview-input input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.image-preview-input-title {
+  margin-left:2px;
+}
+
+.cancel-league {
+  float: right;
+}
+
+.change_logo {
+  color: #5f5f5f;
+}
+
+#league_remove_logo {
+  margin: 0px;
+}
+
+input.time {
+  background-color: rgb(255, 255, 255)
+}
+
+.fb-share-button.fb_iframe_widget {
+  float: right;
+}
+
+.new-form-group {
+  margin-bottom: 4px;
+}
+
+.new_content-quill {
+  display: none;
+}
+
+.ql-container.ql-snow {
+  height: 375px;
+  display: block!important;
 }
