@@ -1,5 +1,6 @@
 class Admin::NewsController < ApplicationController
   before_action :get_new, only: [:destroy, :edit, :update]
+  before_action :check_admin
   def index
     @news = New.includes(:comments).paginate(page: params[:page], per_page: Settings.per_page_new_admin)
   end
@@ -50,5 +51,9 @@ class Admin::NewsController < ApplicationController
       flash[:danger] = t "admin.matchs.new.not_found"
       redirect_to admin_news_index_path
     end
+  end
+
+  def check_admin
+    redirect_to root_path unless logged_in? && current_user.role == "admin"
   end
 end

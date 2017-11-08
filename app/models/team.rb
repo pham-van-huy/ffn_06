@@ -1,9 +1,8 @@
 class Team < ApplicationRecord
   attr_accessor :score
   has_many :players, dependent: :destroy
-  has_many :matchs_one, dependent: :destroy, foreign_key: :team1_id, class_name: :Match
-  has_many :matchs_two, dependent: :destroy, foreign_key: :team2_id, class_name: :Match
-  belongs_to :country
+  has_many :matchs_one, foreign_key: :team1_id, class_name: :Match, dependent: :destroy
+  has_many :matchs_two, foreign_key: :team2_id, class_name: :Match, dependent: :destroy
   belongs_to :country
   validates :name, presence: true, uniqueness: true, length: {maximum: Settings .limit_max_title}
   validates :description, length: {maximum: Settings.limit_min_content}
