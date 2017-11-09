@@ -5,3 +5,12 @@ user:
 per_page_default: 20
 paginate_comment: 5
 paginate_teams: 10
+valid_bet: 75
+limit_bet: 3
+limit_last_new: 5
+limit_last_bet: 5
+per_page_new_admin: 10
+limit_max_title: 200
+limit_min_content: 1000
+limit_provider: 50
+password_default: "123abc"

@@ -1,11 +1,14 @@
 en:
+  datejs:
+    date: "yyyy-m-d"
+    time: "HH:mm"
   time:
     formats:
-      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year_concise: "%d-%m-%Y-%H:%M"
       date_month_year: "%d-%m-%Y"
   date:
     formats:
-      date_month_year_concise: "%d-%m-%Y-%H:%M:%S"
+      date_month_year_concise: "%d-%m-%Y-%H:%M"
       date_month_year: "%d-%m-%Y"
   layouts:
     application:
@@ -18,15 +21,10 @@ en:
       placeholder: "Search teams and league..."
       foobal: "Foobal"
       news: "News"
-      text_logo: "The Daily News Source"
+      text_logo: "The Daily News Sport"
       home: "Home"
       leagues: "Leagues"
       teams: "Teams"
-      contact: "Contact"
-      europe: "Europe"
-      usa: "USA"
-      middle_east: "Middle East"
-      social_and_it: "Social and IT"
       culture: "Culture"
       language: "Language"
       english: "English"
@@ -35,7 +33,11 @@ en:
       profile: "Profile"
       log_out: "Log out"
     sibar_right:
-      name_table: "Ranking of teams"
+      name_table: "Latest bets"
+      latest_new: "Latest news"
+      members: "Members"
+      win: "Win %{money} $"
+      lose: "Lose %{money} $"
   news:
     index:
       title: "Homepage"
@@ -84,6 +86,17 @@ en:
       not_login: "Please login"
     leagues:
       not_found: "This league is not found"
+    bets:
+      create_fail: "Sorry! Your betting is fail"
+      create_success: "Your betting is successfuly, Good luck!"
+      canot_update: "Can not update this bet"
+      canot_update: "Can not delete this bet"
+      update_success: "Update success, Good luck!"
+      delete_success: "Delete success, Good luck!"
+      delete_fail: "Delete fail"
+      update_fail: "Update fail!"
+    matchs:
+      not_found: "This match is not found"
   sessions:
     new:
       title: "Login"
@@ -98,6 +111,7 @@ en:
     index:
       title: "List teams"
       more: "More..."
+    modal:
       logo_team: "Logo's team"
       description: "Description"
       details: "Details"
@@ -123,6 +137,7 @@ en:
       happenning: "Happenning"
       completed: "Completed"
       matchs_completed: "Matchs completed:"
+      teams: "Teams"
       waiting: "Waiting"
       introduction: "Introduction"
       league_schedule: "League schedule"
@@ -130,3 +145,160 @@ en:
       vs: "  VS  "
       start: "Start"
       end: "End"
+      list_team: "List teams"
+    match:
+      coin: "Coin"
+      betting: "Betting"
+      integer: "Please enter an integer, not a float"
+      coin: "Your coin not enough, please enter other number!"
+      validate_value: "Goal much >= 0 and coin >= 1, please enter other number!"
+  matchs:
+    show:
+      title: "Detail match"
+      vs: "VS"
+      status: "Status"
+      completed: "Completed"
+      waiting: "Waiting"
+      start_at: "Start at"
+      end_time: "End time"
+      address: "Address"
+      statistic: "Statistic %{team}"
+      bet: "Bet"
+    list_match:
+      win: "Win"
+      equal: "Equal"
+      lose: "Lose"
+    bet:
+      score: "Score"
+      bet: "Betting"
+      coin: "Coin"
+      waiting: "Waiting"
+      win: "Win"
+      lose: "Lose"
+      result: "Result"
+  admin:
+    leagues:
+      home_admin:
+        title: "Homepage for admin"
+        quick: "Quick Shortcuts"
+        leagues: "Leagues"
+        news: "News"
+        teams: "Teams"
+        players: "Players"
+        users: "Users"
+        name_league: "Name leagues"
+        created: "Created"
+        start_at: "Start at"
+        matched: "Matched"
+      index:
+        title: "Admin list league"
+        list_leagues: "List leagues"
+      new:
+        create: "Create new a leagues"
+        name: "Name of league"
+        introduction: "Introduction"
+        continent: "Select continent of this League"
+        country: "Country"
+        date: "Date"
+        browse: "Browse"
+        change: "Change"
+        clear: "Clear"
+        save: "Save"
+        cancel: "Cancel"
+        choise_country: "Choise country"
+        create_success: "Create successfuly"
+        create_fail: "Create fail"
+      edit:
+        title: "Edit league"
+        save: "Save"
+        change_logo: "Change logo"
+        not_found: "Not found this league"
+        update_success: "Update successfuly"
+        update_fail: "Update fail"
+      delete:
+        delete_success: "Delete successfuly"
+        delete_fail: "Delete fail"
+    matchs:
+      new:
+        create: "Create a match in %{league}"
+        choise_team: "Choise a team"
+        team_one: "Team one"
+        team_two: "Team two"
+        start_time: "Start time"
+        end_time: "End time"
+        stadium: "Choise stadium"
+        goal_team1: "Goal of team one"
+        goal_team2: "Goal of team two"
+        save: "Save"
+        date: "Date"
+        create_success: "Create successfuly"
+        delete_success: "Delete successfuly"
+        create_fail: "Create fail"
+        delete_fail: "Create fail"
+        not_found: "Not found"
+      index:
+        title: "List matchs of %{league}"
+        team_one: "Name of team first"
+        team_two: "Name of team second"
+        goal: "goal"
+        status: "Satus"
+        bets: "Bets"
+        total_money: "Total coin"
+      match:
+        waiting: "Waiting"
+        completed: "Completed"
+        result: "Result"
+    news:
+      index:
+        title: "List news"
+        title_new: "Title of new"
+        img: "Image"
+        create_at: "Create at"
+        comments: "Comments"
+        manage: "Manage"
+      new:
+        title: "Create a new newspaper"
+        clear: "Clear"
+        browse: "Browse"
+        content: "Content of newspaper"
+        create_success: "Create successfuly"
+        title_new: "Title of new"
+        content: "Content of new"
+        save: "Save"
+        cancel: "Cancel"
+      edit:
+        title_new: "Title of new"
+        content: "Content of new"
+        save: "Save"
+        cancel: "Cancel"
+    teams:
+      index:
+        title: "Tist teams"
+        name: "Name"
+        logo: "Logo"
+        create_at: "Create at"
+        members: "Members"
+        manage: "Manage"
+      new:
+        title: "Create a new team"
+        name: "Name of team"
+        description: "Description of team"
+        clear: "Clear"
+        browse: "Browse"
+        save: "Save"
+        cancel: "Cancel"
+        select_country: "Select country"
+        create_success: "Create successfuly"
+        delete_success: "Delete successfuly"
+        delete_fail: "Delete fail"
+        not_found: "Not found"
+        country: "Country"
+      edit:
+        title: "Edit team %{name}"
+        name: "Name"
+        description: "Description"
+        clear: "Clear"
+        browse: "Browse"
+        country: "Country"
+        save: "Save"
+        cancel: "Cancel"
