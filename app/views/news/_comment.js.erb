@@ -3,7 +3,7 @@ $(document).ready(function() {
         var content = $("#content_comment").val()
         var data = {
             content: content,
-            new_id: <%= @new.id %>
+            new_id: <%= @newdetail.id %>
         }
 
         if (content) {
