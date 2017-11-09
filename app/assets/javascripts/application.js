@@ -17,3 +17,5 @@
 //= require i18n.js
 //= require i18n/translations
 //= require_tree .
+//= require quill.min
+//= require quill.global

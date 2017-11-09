@@ -2,9 +2,15 @@
 <div class="row">
   <div class="col-lg-12">
     <h1><%= @new.title %></h1>
-    <p><%= I18n.l @new.created_at, format: :date_month_year_concise %></p>
+    <p>
+      <%= I18n.l @new.created_at, format: :date_month_year_concise %>
+      <div class="fb-share-button"
+        data-href="<%= request.original_url %>"
+        data-layout="button_count">
+      </div>
+    </p>
     <hr>
-      <p class="new-content"><%= @new.content %></p>
+      <p class="new-content"><%= @new.content.html_safe %></p>
     <hr>
 
     <% if logged_in? %>

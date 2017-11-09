@@ -1,0 +1,28 @@
+<tr>
+  <td>
+    <%= link_to new.title, news_path(new), class: "user-link" %>
+  </td>
+  <td class="img_list">
+    <img src="<%= new.represent_image %>"/>
+  </td>
+  <td>
+    <%= I18n.l new.created_at, format: :date_month_year %>
+  </td>
+  <td>
+    <%= new.comments.size %>
+  </td>
+  <td style="width: 15%;">
+    <a href="<%= edit_admin_news_path new %>" class="table-link">
+        <span class="fa-stack">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+    <a href="<%= admin_news_path new %>" class="table-link danger" data-method="delete">
+        <span class="fa-stack">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+  </td>
+</tr>

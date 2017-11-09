@@ -1,0 +1,49 @@
+<% provide(:title, @new.title) %>
+<%= form_for @new, url: admin_news_path(@new) do |f|%>
+  <%= render "shared/error_messages", object: f.object %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group">
+        <%= f.text_field :title, class: "form-control", placeholder: t(".title_new"), required: true %>
+      </div>
+      <div class="form-group">
+        <%= f.text_area :content, class: "form-control quill_container", placeholder: t(".content") %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="well well-sm well-primary">
+        <div class="input-group image-preview">
+          <input type="text" class="form-control image-preview-filename" disabled="disabled">
+          <span class="input-group-btn">
+          <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+            <%= t ".clear" %>
+          </button>
+          <div class="btn btn-default image-preview-input">
+            <span class="image-preview-input-title"><%= t(".browse") %></span>
+            <%= f.file_field :represent_image, accept: "image/png, image/jpeg" %>
+          </div>
+          </span>
+        </div>
+        <img src="<%= @new.represent_image %>">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="well well-sm well-primary">
+        <form class="form form-inline " role="form">
+          <div class="form-group new-form-group">
+            <%= f.submit t(".save"), class: "btn btn-success btn-sm" %>
+            <%= link_to t(".cancel"), admin_news_index_path, class: "btn btn-danger btn-sm cancel-league"%>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%= content_for :javascript do %>
+  <script type="text/javascript">
+    <%= render partial: "admin/news/newjs.js.erb" %>
+  </script>
+<% end %>
+
