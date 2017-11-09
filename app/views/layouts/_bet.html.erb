@@ -1,0 +1,19 @@
+<% bets.each do |bet| %>
+  <tr>
+      <td>
+        <h5><strong><%= bet.match.teams_col_one.name %></strong></h5>
+        <p><%= bet.match.team1_goal %> - <%= bet.match.team2_goal %></p>
+      </td>
+      <td>
+        <h5><strong><%= bet.match.teams_col_two.name %></strong></h5>
+        <p><%= bet.team1_goal %> - <%= bet.team2_goal %></p>
+      </td>
+      <td>
+        <% if bet.result %>
+          <label class="label label-success"><%= t ".win", money: bet.coin %></label>
+        <% else %>
+          <label class="label label-danger"><%= t ".lose", money: bet.coin %></label>
+        <% end %>
+      </td>
+  </tr>
+<% end %>

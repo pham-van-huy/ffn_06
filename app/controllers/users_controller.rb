@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    if @user.update_attributes name: params[:user][:name], email: params[:user][:email]
+    if @user.update_attributes user_params
       flash[:success] = t "controller.user.update_success"
       redirect_to root_path
     else
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation
+    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
   end
 
   def get_user
