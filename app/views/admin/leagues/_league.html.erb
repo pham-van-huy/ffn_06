@@ -1,0 +1,32 @@
+<tr>
+  <td>
+    <img src="<%= league.logo %>" alt="">
+    <%= link_to league.name, league_path(league), class: "user-link" %>
+  </td>
+  <td class="padding-top">
+    <%= I18n.l league.created_at, format: :date_month_year %>
+  </td>
+  <td class="text-center padding-top">
+    <%= I18n.l league.time, format: :date_month_year %>
+  </td>
+  <td class="padding-top">
+    <%= link_to matched(league.matchs).size.to_s + "/" + league.matchs.size.to_s, admin_league_matchs_path(league) %>
+    <a href="<%= new_admin_league_match_path league %>">
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </a>
+  </td>
+  <td class="padding-top width-td">
+    <a href="<%= edit_admin_league_path league %>" class="table-link">
+        <span class="fa-stack">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+        </span>
+    </a>
+    <a href="<%= admin_league_path league %>" class="table-link danger" data-method="delete">
+        <span class="fa-stack">
+          <i class="fa fa-square fa-stack-2x"></i>
+          <i class='fa fa-trash-o fa-stack-1x fa-inverse'></i>
+        </span>
+    </a>
+  </td>
+</tr>

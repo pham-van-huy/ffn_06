@@ -1,0 +1,53 @@
+<% if logged_in? && current_user.coin > 0 %>
+  <% if bets_of_user(match.bets).size ==0 && match.start_time.future? %>
+    <div class="row margin_row">
+      <div class="col-sm-12">
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= match.teams_col_one.name %></label>
+            <br />
+            <input type="number" name="team_one" class="form-control width_select habitaciones">
+          </div>
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= match.teams_col_two.name %></label>
+            <br />
+            <input type="number" name="team_two" class="form-control width_select">
+          </div>
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= t ".coin" %></label>
+            <br />
+            <input type="number" name="coin" class="form-control width_select">
+          </div>
+      </div>
+    </div>
+    <div class="row button-search style-button-bet">
+      <button
+        class="btn btn-success btn-sm btn_search submit-bet"
+        data-match-id="<%= match.id %>"
+        data-coin="<%= current_user.coin %>">
+        <%= t ".betting" %>
+      </button>
+    </div>
+  <% elsif bets_of_user(match.bets).first.present? %>
+    <div class="row margin_row">
+      <div class="col-sm-12 <%= check_result bets_of_user(match.bets).first %>">
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= match.teams_col_one.name %></label>
+            <br />
+            <label>
+              <%= bets_of_user(match.bets).first.team1_goal %>
+            </label>
+          </div>
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= match.teams_col_two.name %></label>
+            <br />
+            <label> <%= bets_of_user(match.bets).first.team2_goal %></label>
+          </div>
+          <div class="col-sm-4 style-bet">
+            <label for=""><%= t ".coin" %></label>
+            <br />
+            <label><%= bets_of_user(match.bets).first.coin %></label>
+          </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

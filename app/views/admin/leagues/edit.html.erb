@@ -1,0 +1,82 @@
+<% provide(:title, t(".create")) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-primary">
+        <div class="panel-heading row">
+            <h4 class="panel-title color-white"><%= t ".create" %></h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <%= form_for @league, url: admin_league_path do |f| %>
+              <%= render "shared/error_messages", object: f.object %>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <%= f.text_field :name,
+                      class: "form-control",
+                      placeholder: t(".name"),
+                      required: true %>
+                  </div>
+                  <div class="form-group">
+                    <%= f.text_area :introduction, class: "form-control", placeholder: t(".introduction"), rows: 6 %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t(".continent") %></label>
+                    <%= select("league", "continent_id",
+                      Continent.all.collect {|p| [ p.name, p.id ]},
+                      {prompt: t(".continent")},
+                      class: "form-control") %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label><%= t(".country") %></label>
+                    <%= select("league", "country_id",
+                      country_continent(@league.continent_id).collect {|p| [ p.name, p.id ] },
+                      {prompt: t(".country")},
+                      class: "form-control") %>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="well well-sm well-primary">
+                    <div class="input-group image-preview">
+                      <input type="text" class="form-control image-preview-filename" disabled="disabled">
+                      <span class="input-group-btn">
+                      <button type="button" class="btn btn-default image-preview-clear" style="display:none;">
+                        <%= t ".clear" %>
+                      </button>
+                      <div class="btn btn-default image-preview-input">
+                        <span class="image-preview-input-title"><%= t(".browse") %></span>
+                        <%= f.file_field :logo, accept: 'image/png, image/jpeg' %>
+                      </div>
+                      </span>
+                    </div>
+                    <img src="<%= @league.logo %>">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="well well-sm well-primary">
+                    <div class="form-group">
+                      <%= date_field :league, :time, class: "form-control", placeholder: t(".date"), required: true %>
+                    </div>
+                    <div class="form-group">
+                      <%= f.submit t(".save"), class: "btn btn-success btn-sm" %>
+                      <%= link_to t(".cancel"), admin_leagues_path, class: "btn btn-danger btn-sm cancel-league" %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

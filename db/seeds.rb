@@ -1,7 +1,7 @@
 User.create!(
   name: "admin",
   email: "admin@gmail.com",
-  role: "admin",
+  role: true,
   password: "123123",
   coin: 1000)
 
@@ -13,7 +13,6 @@ User.create!(
   User.create!(
     name: name,
     email: email,
-    role: "user",
     password: password,
     coin: Faker::Number.between(0, 500)
   )
@@ -25,7 +24,7 @@ end
     title: Faker::Lorem.sentence,
     content: Faker::Lorem.paragraph(80),
     count_comment: Faker::Number.between(0, 6),
-    represent_image: "image_default.jpg"
+    represent_image: ""
   )
 end
 
@@ -69,9 +68,9 @@ Continent.all.each do |n|
       continent_id: n.id,
       country_id: n.countries[rand(0..3)].id,
       name: Faker::Name.unique.name,
-      time: Faker::Date.forward(rand(30..60)),
+      time: Faker::Date.between(1.month.ago, 3.month.from_now),
       introduction: Faker::Lorem.paragraph(3),
-      logo: "image_default.jpg"
+      logo: nil
     )
   end
 end
@@ -90,13 +89,16 @@ end
 10.times do |n|
   team1_id = rand(1..10)
   team2_id = Team.where("id != #{team1_id}")[rand(0..8)].id
+  league = League.all()[rand(1..6)]
+  start_time = Faker::Time.between(league.time, league.time + 25.days)
+  end_time = start_time + 105.minutes
   Match.create!(
     team1_id: team1_id,
     team2_id: team2_id,
     stadium_id: Stadium.all[rand(1..24)].id,
-    league_id: League.all()[rand(1..6)].id,
-    start_time: Faker::Time.forward(23, :morning),
-    end_time: Faker::Time.forward(16, :morning),
+    league_id: league.id,
+    start_time: start_time,
+    end_time: end_time,
     team1_goal: rand(0..5),
     team2_goal: rand(0..5)
   )

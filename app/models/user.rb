@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role: { user: false, admin: true }
   has_many :bets, dependent: :destroy
   has_many :new, dependent: :destroy
 
