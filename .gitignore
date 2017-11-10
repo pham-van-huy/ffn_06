@@ -57,3 +57,5 @@ config/environments/*.local.yml
 
 app/assets/images/img
 app/assets/javascripts/i18n/translations.js
+public/logo
+public/uploads
