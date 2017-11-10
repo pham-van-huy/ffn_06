@@ -51,6 +51,21 @@ ActiveRecord::Schema.define(version: 20171109015055) do
     t.index ["continent_id"], name: "index_countries_on_continent_id"
   end
 
+  create_table "delayed_jobs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "priority", default: 0, null: false
+    t.integer "attempts", default: 0, null: false
+    t.text "handler", null: false
+    t.text "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string "locked_by"
+    t.string "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
   create_table "leagues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "country_id"
     t.bigint "continent_id"
@@ -101,6 +116,12 @@ ActiveRecord::Schema.define(version: 20171109015055) do
     t.datetime "updated_at", null: false
     t.index ["country_id"], name: "index_players_on_country_id"
     t.index ["team_id"], name: "index_players_on_team_id"
+  end
+
+  create_table "social_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "user_id"
+    t.string "provider"
+    t.string "provider_id"
   end
 
   create_table "stadia", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

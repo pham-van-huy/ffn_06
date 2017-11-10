@@ -10,7 +10,7 @@
           <li>
             <table class="table">
               <tbody>
-                <%= render patial: "layouts/bet", locals: {bets: @bets} %>
+                <!-- render partial: "layouts/bet", locals: {bets: @bets} -->
               </tbody>
             </table>
           </li>
@@ -25,20 +25,20 @@
       <p><strong><%= t ".latest_new" %></strong></p>
     </div>
     <ul>
-      <% @latest_news.each do |e| %>
+      <!-- @latest_news.each do |e|
         <li>
-          <img src="<%= e.represent_image %>">
-          <%= link_to e.title, news_path(e) %>
+          <img src="e.represent_image">
+          link_to e.title, news_path(e)
           <div class="date-like-comment">
             <span class="date"><time class="time-sibar">
-              <%= I18n.l e.created_at, format: :date_month_year %>
+              I18n.l e.created_at, format: :date_month_year
             </time></span>
             <a class="comments" href="javascript:void(0)">
-              <i class="fa fa-comments-o"></i><%= e.comments.size %>
+              <i class="fa fa-comments-o"></i>e.comments.size
             </a>
           </div>
         </li>
-      <% end %>
+      end -->
     </ul>
 
   </section>

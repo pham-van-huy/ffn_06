@@ -1089,12 +1089,10 @@ time > .month {
   text-align: center;
 }
 
-<<<<<<< d3edb28d624020652fcba1854ec5e01a0f57dcc1
 .width-td {
   width: 15%;
 }
-=======
->>>>>>> user bet machs
+
 .style-bet {
   padding: 0px;
   border-right: 1px solid white;
@@ -1255,7 +1253,7 @@ time > .month {
 
 .panel-heading-leagues a:hover{
   cursor: pointer;
-  color: white!white;
+  color: white;
   font-size: 35px;
   margin-top: -14px;
 }

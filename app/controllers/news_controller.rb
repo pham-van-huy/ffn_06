@@ -4,9 +4,9 @@ class NewsController < ApplicationController
   end
 
   def show
-    @new = New.find_by_id params[:id]
-    if @new
-      @comments = @new.comments.desc.includes(:user).paginate(page:
+    @newdetail = New.find_by_id params[:id]
+    if @newdetail
+      @comments = @newdetail.comments.desc.includes(:user).paginate(page:
         params[:page], per_page: Settings.paginate_comment)
     else
       flash[:danger] = t "controller.comment.not_found"

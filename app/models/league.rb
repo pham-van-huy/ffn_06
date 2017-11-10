@@ -7,6 +7,6 @@ class League < ApplicationRecord
   }
   scope :desc, ->{order("created_at DESC")}
   mount_uploader :logo, LogoUploader
-  validates :name, length: {maximum: 20}, uniqueness: true, presence: true
+  validates :name, length: {maximum: Settings.limit_provider}, uniqueness: true, presence: true
   validates :time, :country_id, :continent_id, presence: true
 end

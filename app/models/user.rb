@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  enum role: { user: false, admin: true }
+  enum role: {user: false, admin: true}
   has_many :bets, dependent: :destroy
   has_many :new, dependent: :destroy
   has_one :social_account, dependent: :destroy, class_name: :Social_account

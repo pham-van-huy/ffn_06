@@ -30,8 +30,11 @@ gem "will_paginate", "3.1.5"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
+  gem "factory_bot_rails"
   gem "pry-rails"
   gem "selenium-webdriver"
+  gem "rspec-rails"
+  gem "rspec-activemodel-mocks"
 end
 
 group :development do

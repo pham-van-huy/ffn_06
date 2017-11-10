@@ -46,6 +46,8 @@ en:
       no_news: "No data to show"
     new:
       read_more: "Read More"
+    show:
+      comments: "Comments"
   home:
     title: "Homepage"
     new:
