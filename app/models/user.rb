@@ -8,6 +8,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, uniqueness: true,
-    length: {maximum: Settings.user.email_length}
+    length: {maximum: Settings.user.email_length},
+    format: {with: VALID_EMAIL_REGEX}
   validates :password, presence: true, length: {minimum: Settings.user.password_length}, allow_nil: true
 end

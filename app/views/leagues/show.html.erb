@@ -134,7 +134,7 @@
                             <ul class="ranking_table">
                               <% ranking_in_leagues(@league.matchs).each_with_index do |e, index| %>
                                 <li>
-                                  <img src="/assets/<%= e[:team].logo %>">
+                                  <img src="<%= e[:team].logo %>">
                                   <a> <%=  e[:team].name  %> </a>
                                   <div class="date-like-comment">
                                     <a class="like" href="javascript:void(0)">

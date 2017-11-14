@@ -38,6 +38,7 @@ group :development, :test do
   gem "rspec-activemodel-mocks"
   gem "rspec-rails"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
 end
 
 group :development do

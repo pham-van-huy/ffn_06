@@ -26,7 +26,7 @@ RSpec.describe "news/show.html.erb", type: :view do
   end
 
   it "Displays name of user commented this new" do
-    expect(rendered).to include(%Q(<h4 class="media-heading">name of user))
+    expect(rendered).to include(%Q(<h4 class="media-heading">email@gmail.com))
   end
 
   it "Do not displays button summit comment" do
