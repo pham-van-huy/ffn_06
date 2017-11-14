@@ -16,13 +16,13 @@ module LeaguesHelper
 
   def valid_bet? match
     check_time = (match.start_time + Settings.valid_bet.minutes).future?
-    logged_in? && current_user.coin > 0 && check_time
+    signed_in? && current_user.coin > 0 && check_time
   end
 
   def ranking_in_leagues matchs
-    team_col_one = matchs.group_by { |e| e[:team1_id] }
-    team_col_two = matchs.group_by { |e| e[:team2_id] }
-    teams = team_col_one.merge(team_col_two){ |k, one_value, two_value| [one_value, two_value] }
+    team_col_one = matchs.group_by{|e| e[:team1_id]}
+    team_col_two = matchs.group_by{|e| e[:team2_id]}
+    teams = team_col_one.merge(team_col_two){|k, one_value, two_value| [one_value, two_value]}
     team_score = teams.map do |key, match|
       if match.size > 1
         if key == match.first.first.team1_id

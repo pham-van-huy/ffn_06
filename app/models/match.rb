@@ -13,12 +13,13 @@ class Match < ApplicationRecord
   def get_team id
     Team.find_by_id id
   end
+
   def self.update_match_bet match
     bets = match.bets
     bets.each do |bet|
       if bet.team1_goal == match.team1_goal && bet.team2_goal == match.team2_goal
         bet.update_attribute(:result, true)
-        bet.user.update_attribute(:coin, 2*bet.coin + bet.user.coin)
+        bet.user.update_attribute(:coin, 2 * bet.coin + bet.user.coin)
       else
         bet.update_attribute(:result, false)
       end

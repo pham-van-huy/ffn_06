@@ -1,4 +1,4 @@
-<% if logged_in? && current_user.coin > 0 %>
+<% if signed_in? && current_user.coin > 0 %>
   <% if bets_of_user(match.bets).size ==0 && match.start_time.future? %>
     <div class="row margin_row">
       <div class="col-sm-12">

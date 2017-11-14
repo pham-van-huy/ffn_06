@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
 
   private
   def check_login
-    unless logged_in?
+    unless signed_in?
       respond_to do |format|
         msg = {status: false, message: t("controller.comment.not_login")}
         format.json{render json: msg}
