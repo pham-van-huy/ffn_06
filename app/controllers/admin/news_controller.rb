@@ -54,6 +54,6 @@ class Admin::NewsController < ApplicationController
   end
 
   def check_admin
-    redirect_to root_path unless logged_in? && current_user.role == "admin"
+    redirect_to root_path unless signed_in? && current_user.role == "admin"
   end
 end

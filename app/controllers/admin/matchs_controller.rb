@@ -32,6 +32,7 @@ class Admin::MatchsController < ApplicationController
     end
     @stadiums = Stadium.get_by_country @league.country_id
   end
+
   def get_params
     data = params.require(:match).permit(:team1_id,
       :team2_id, :team1_goal, :team2_goal, :stadium_id,
@@ -42,6 +43,6 @@ class Admin::MatchsController < ApplicationController
   end
 
   def check_admin
-    redirect_to root_path unless logged_in? && current_user.role == "admin"
+    redirect_to root_path unless signed_in? && current_user.role == "admin"
   end
 end

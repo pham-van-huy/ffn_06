@@ -78,7 +78,7 @@ class BetsController < ApplicationController
   def check_destroy
     @bet = Bet.find_by_id params[:id]
     time_valid = @bet.match.start_time + Settings.valid_bet.minutes
-    unless @bet && time_valid.future? && logged_in?
+    unless @bet && time_valid.future? && signed_in?
       respond_to do |format|
         msg = {status: false, message: t("controller.bets.canot_delete")}
         format.json{render json: msg}

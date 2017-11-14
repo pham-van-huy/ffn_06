@@ -56,7 +56,7 @@ class Admin::TeamsController < ApplicationController
   end
 
   def check_admin
-    redirect_to root_path unless logged_in? && current_user.admin?
+    redirect_to root_path unless signed_in? && current_user.admin?
   end
 
   def get_country

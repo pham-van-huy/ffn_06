@@ -13,7 +13,7 @@
       <p class="new-content"><%= @newdetail.content.html_safe %></p>
     <hr>
 
-    <% if logged_in? %>
+    <% if signed_in? %>
       <div class="panel panel-default">
         <div class="panel-heading"><%= t ".comment" %></div>
         <div class="panel-body">
@@ -36,7 +36,7 @@
             </a>
           </div>
           <div class="col-lg-11 name_author" data-id="<%= comment.id %>">
-            <h4 class="media-heading"><%= comment.user.name %>
+            <h4 class="media-heading"><%= comment.user.email %>
               <% if current_user && comment.user_id == current_user.id %>
                 <span ><i class="fa fa-trash" aria-hidden="true"></i></span>
                 <span><i class="fa fa-pencil"  aria-hidden="true"></i></span>
