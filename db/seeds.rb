@@ -1,5 +1,4 @@
 User.create!(
-  name: "admin",
   email: "admin@gmail.com",
   role: true,
   password: "123123",
@@ -7,11 +6,10 @@ User.create!(
 
 19.times do |n|
   name = Faker::Name.unique.name
-  email = name + "@example.com"
+  email = "email" + n.to_s + "@example.com"
   password = "123123"
 
   User.create!(
-    name: name,
     email: email,
     password: password,
     coin: Faker::Number.between(0, 500)

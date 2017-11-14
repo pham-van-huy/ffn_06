@@ -1,5 +1,5 @@
 <aside id="ccr-right-section" class="col-md-4 ccr-home">
-  <% if logged_in? %>
+  <% if signed_in? %>
     <section id="sidebar-popular-post">
       <div class="ccr-gallery-ttile">
         <span></span>
@@ -10,7 +10,7 @@
           <li>
             <table class="table">
               <tbody>
-                <!-- render partial: "layouts/bet", locals: {bets: @bets} -->
+                <%= render partial: "layouts/bet", locals: {bets: @bets} %>
               </tbody>
             </table>
           </li>
@@ -25,46 +25,20 @@
       <p><strong><%= t ".latest_new" %></strong></p>
     </div>
     <ul>
-      <!-- @latest_news.each do |e|
+      <% @latest_news.each do |e| %>
         <li>
-          <img src="e.represent_image">
-          link_to e.title, news_path(e)
+          <img src="<%= e.represent_image %>">
+          <%= link_to e.title, news_path(e) %>
           <div class="date-like-comment">
             <span class="date"><time class="time-sibar">
-              I18n.l e.created_at, format: :date_month_year
+              <%= I18n.l e.created_at, format: :date_month_year %>
             </time></span>
             <a class="comments" href="javascript:void(0)">
-              <i class="fa fa-comments-o"></i>e.comments.size
+              <i class="fa fa-comments-o"></i><%= e.comments.size %>
             </a>
           </div>
         </li>
-      end -->
+      <% end %>
     </ul>
-
-  </section>
-  <section id="ccr-sidebar-newslater">
-
-    <div class="ccr-gallery-ttile">
-      <span></span>
-      <p><label for="sb-newslater"><strong>Newslater</strong></label></p>
-    </div>
-    <div class="sidebar-newslater-form">
-      <form class="ccr-gallery-ttile" action="#">
-        <input type="email" id="sb-newslater" name="sb-newslater" placeholder="Enter your email address" required>
-        <button type="submit">Subscribe</button>
-
-      </form>
-    </div>
-  </section>
-
-  <section id="ccr-find-on-fb">
-    <div class="find-fb-title">
-      <span><i class="fa fa-facebook"></i></span> Find us on Facebook
-    </div>
-    <div class="find-on-fb-body">
-
-      <div class="fb-like-box" data-href="https://www.facebook.com/codexcoderltd/" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false">
-      </div>
-    </div>
   </section>
 </aside>

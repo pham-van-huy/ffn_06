@@ -2,21 +2,6 @@ class UsersController < ApplicationController
   before_action :get_user, only: [:edit, :update]
   before_action :check_login, only: [:edit, :update]
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      flash[:success] = t "controller.user.sign_up_success"
-      redirect_to root_path
-    else
-      render :new
-    end
-  end
-
   def edit; end
 
   def update
@@ -31,7 +16,7 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit :name, :email, :password, :password_confirmation, :avatar
+    params.require(:user).permit :email, :avatar
   end
 
   def get_user
@@ -42,7 +27,7 @@ class UsersController < ApplicationController
   end
 
   def check_login
-    unless logged_in?
+    unless signed_in?
       flash[:danger] = t("controller.comment.not_login")
       redirect_to root_path
     end

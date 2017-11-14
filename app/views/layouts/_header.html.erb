@@ -4,12 +4,12 @@
       <div class="container">
         <nav class="top-menu">
           <ul class="right-top-menu pull-right">
-            <% if logged_in? %>
-              <li><%= link_to current_user.name, edit_user_path(current_user) %></li>
-              <li><%= link_to t("log_out"), logout_path, method: :delete %></li>
+            <% if signed_in? %>
+              <li><%= link_to current_user.email, edit_user_path(current_user) %></li>
+              <li><%= link_to t("log_out"), destroy_user_session_path, method: :delete %></li>
             <% else %>
-              <li><%= link_to t(".login"), login_path %></li>
-              <li><%= link_to t(".register"), signup_path %></li>
+              <li><%= link_to t(".login"), new_user_session_path %></li>
+              <li><%= link_to t(".register"), new_user_registration_path %></li>
             <% end %>
             <li>
               <%= form_for :searchs, url: search_path, html: {
@@ -23,10 +23,6 @@
       </div>
     </div>
   </section>
-
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-  <% end %>
 
   <section id="ccr-site-title">
     <div class="container">

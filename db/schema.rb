@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109015055) do
+ActiveRecord::Schema.define(version: 20171112125723) do
 
   create_table "bets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "user_id"
@@ -145,14 +145,15 @@ ActiveRecord::Schema.define(version: 20171109015055) do
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
     t.string "email"
     t.boolean "role", default: false
-    t.string "password_digest"
     t.string "avatar"
-    t.integer "coin"
+    t.integer "coin", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "bets", "matches"
