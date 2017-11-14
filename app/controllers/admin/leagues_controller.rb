@@ -13,7 +13,7 @@ class Admin::LeaguesController < ApplicationController
   def edit
     @league = League.includes(:country, :continent).find_by_id(params[:id])
     unless @league
-      flag[:danger] = t "admin.leagues.edit.not_found"
+      flash[:danger] = t "admin.leagues.edit.not_found"
       redirect_to admin_leagues_path
     end
   end
@@ -34,7 +34,7 @@ class Admin::LeaguesController < ApplicationController
   def create
     @league = League.new league_params
     if @league.save
-      flash[:succes] = t "admin.leagues.new.create_success"
+      flash[:success] = t "admin.leagues.new.create_success"
       redirect_to admin_leagues_path
     else
       flash[:danger] = t "admin.leagues.new.create_fail"
@@ -44,7 +44,7 @@ class Admin::LeaguesController < ApplicationController
 
   def destroy
     if @league.destroy
-      flash[:succes] = t "admin.leagues.delete.delete_success"
+      flash[:success] = t "admin.leagues.delete.delete_success"
     else
       flash[:danger] = t "admin.leagues.delete.delete_fail"
     end
@@ -53,13 +53,13 @@ class Admin::LeaguesController < ApplicationController
 
   private
   def league_params
-    params.require(:league).permit :logo, :name, :introduction, :continent_id, :logo, :time, :country_id
+    params.require(:league).permit :name, :introduction, :continent_id, :logo, :time, :country_id
   end
 
   def valid_league
     @league = League.find_by_id(params[:id])
     unless @league
-      flag[:danger] = t "admin.leagues.edit.not_found"
+      flash[:danger] = t "admin.leagues.edit.not_found"
       redirect_to admin_leagues_path
     end
   end
