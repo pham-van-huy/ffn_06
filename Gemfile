@@ -11,6 +11,7 @@ gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "daemons"
 gem "delayed_job_active_record"
+gem "devise"
 gem "faker", "1.7.3"
 gem "font-awesome-rails"
 gem "httparty"
@@ -30,11 +31,12 @@ gem "will_paginate", "3.1.5"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
+  gem "dotenv-rails"
   gem "factory_bot_rails"
   gem "pry-rails"
-  gem "selenium-webdriver"
-  gem "rspec-rails"
   gem "rspec-activemodel-mocks"
+  gem "rspec-rails"
+  gem "selenium-webdriver"
 end
 
 group :development do

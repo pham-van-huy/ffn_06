@@ -11,14 +11,14 @@
   <%= render "layouts/header" %>
     <section id="ccr-main-section">
       <div class="container">
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
         <section id="ccr-left-section" class="col-md-8">
           <%= yield %>
         </section>
         <%= render "layouts/sibar_right"%>
       </div>
     </section>
-  <%= render "layouts/footer"%>
-  <%= debug(params) if Rails.env.development? %>
   <%= render "layouts/load_js"%>
   <%= content_for :javascript %>
   </body>
